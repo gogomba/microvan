@@ -1,0 +1,17 @@
+about
+executive-summary
+data-verification
+explorative-data-analysis
+correlation-analysis
+pair-wise-scatter-plot
+correlation-matrix
+eigenvalues
+scree-plot
+cumulative-percentages-of-variance
+exploratory-factor-analysis
+communality
+factor-loadings
+clustering
+regression
+discussion
+references-1
