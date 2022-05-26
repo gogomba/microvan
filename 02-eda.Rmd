@@ -1,5 +1,36 @@
 # Data verification
 ***
+```{r, message=FALSE, warning=FALSE}
+# multivariate analysis and basic descriptive statistics
+library(psych)  
+
+# data processing
+library(dplyr)
+library(tidyverse)
+library(data.table)
+
+# plot
+library(ggplot2)
+library(corrplot)
+
+# rMarkdown 
+library(rmarkdown)
+
+
+# file path management 
+library(here)
+
+```
+
+```{r, include=FALSE}
+# set working directory 
+# Path
+mainDir = here::here()
+dataDir = file.path(mainDir,"data")
+plotDir = file.path(mainDir,"plot")
+reportDir = file.path(mainDir, "report")
+```
+
 ```{r}
 # Show it:
 dataPath = file.path(dataDir, "microvan.csv")

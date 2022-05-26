@@ -5,7 +5,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Microvan</a></li>
       after: |
-        <li><a href="" target="blank">Published with bookdown</a></li>
+        <li><a href="" target="blank">GitHub</a></li>
     edit: https://github.com/gogomba/microvan/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:

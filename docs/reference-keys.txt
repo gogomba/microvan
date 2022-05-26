@@ -1,4 +1,3 @@
-about
 executive-summary
 data-verification
 explorative-data-analysis
@@ -14,4 +13,3 @@ factor-loadings
 clustering
 regression
 discussion
-references-1

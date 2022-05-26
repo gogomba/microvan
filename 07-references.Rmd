@@ -1,8 +1,4 @@
-`r if (knitr::is_html_output()) '
 # References {-}
-'`
-
-# References
 ***
  * [Reducing Dimensionality](https://static.esmt.org/pub/edtech/reducing_dimensionality.html)
  * [Latent Dimensions of Customer Perceptions](https://static.esmt.org/pub/edtech/customer_perceptions.html)
