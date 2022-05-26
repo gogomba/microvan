@@ -1,0 +1,11 @@
+`r if (knitr::is_html_output()) '
+# References {-}
+'`
+
+# References
+***
+ * [Reducing Dimensionality](https://static.esmt.org/pub/edtech/reducing_dimensionality.html)
+ * [Latent Dimensions of Customer Perceptions](https://static.esmt.org/pub/edtech/customer_perceptions.html)
+ * [Hierarchical Clustering](https://static.esmt.org/pub/edtech/Hierarchical_clustering.html)
+ * [Preference Segmentation](https://static.esmt.org/pub/edtech/Preference_segmentation.html)
+ * [Preference Segmentation - Validation](https://static.esmt.org/pub/edtech/Segmentation_validation.html)

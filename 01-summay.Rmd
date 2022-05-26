@@ -1,0 +1,5 @@
+# Executive Summary
+The case describes a project by Grosse Pointe Associates (GPA) investigating the potential market for “microvans”. The objectives of this case are:
+1. To give you experience segmenting customers in a market
+2. To have you determine which segment(s) would be good to target based on analysis of the data.
+3. To have you relate the segment(s) to demographic variables potentially useful for targeting.

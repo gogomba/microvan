@@ -1,0 +1,30 @@
+# Exploratory Factor Analysis 
+***
+```{r}
+EFA1 <- fa(r = cor, 
+           nfactors = 5, 
+           fm = "pa", 
+           rotate = "none") 
+```
+## Communality 
+```{r}
+sort(EFA1$communality)
+```
+
+## Factor Loadings
+```{r}
+# Factor loadings
+L <- unclass(EFA1$loadings) 
+round(L, 3)
+
+EFA2 <- fa(r = cor, 
+           nfactors = 5, 
+           fm = "pa", 
+           rotate = "varimax") 
+
+print(EFA2, 
+      digits = 3, # to round numbers to the third digit 
+      cut = 0.35, # to show only values > 0.35
+      sort = TRUE # to sort rows by loading size
+)
+```
