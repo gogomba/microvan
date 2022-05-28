@@ -1,4 +1,4 @@
-# Data verification
+# Explorative Data Analysis
 ***
 ```{r, message=FALSE, warning=FALSE}
 # multivariate analysis and basic descriptive statistics
@@ -15,24 +15,26 @@ library(corrplot)
 
 # rMarkdown 
 library(rmarkdown)
-
+library(kableExtra)
 
 # file path management 
 library(here)
 
+# stat
+library(factoextra)
 ```
 
 ```{r, include=FALSE}
 # set working directory 
-# Path
-mainDir = here::here()
+# file path
+mainDir = here::here("~/Documents/github/MBA/Application/ESMT/Course/Module2/Customer_Analytics/CA6/GroupCapstone/Microvan")
 dataDir = file.path(mainDir,"data")
 plotDir = file.path(mainDir,"plot")
 reportDir = file.path(mainDir, "report")
 ```
 
 ```{r}
-# Show it:
+# data 
 dataPath = file.path(dataDir, "microvan.csv")
 microvan = read.csv(dataPath, sep=";")
 
@@ -42,13 +44,14 @@ microvan <- as.data.table(lapply(microvan, as.numeric))
 # data description
 description = psych::describe(microvan)
 description 
+
+# scale data
+vars <- scale(microvan[,2:32])
 ```
 
-# Explorative Data Analysis
+
 ## Correlation Analysis
-***
 ### Pair-wise Scatter Plot
-***
 ```{r,echo=FALSE,message=FALSE}
 # plot name
 scatterPlot = file.path(plotDir, "scatter_plot.png")
@@ -59,8 +62,8 @@ png(
   width = 800,
   height = 800
 )
-# plot
-pairs.panels(microvan[,2:11], scale =TRUE,show.points = FALSE,cex.cor = 2.5,
+# plot first 10 varaibles
+pairs.panels(vars[,1:10], scale =TRUE,show.points = FALSE,cex.cor = 2.5,
              method = "pearson", # correlation method
              hist.col = "#00AFBB",
              density = TRUE  # show density plots
@@ -77,21 +80,21 @@ knitr::include_graphics(scatterPlot)
 ```{r,echo=FALSE,message=FALSE}
 # plot name
 corrPlot = file.path(plotDir, "corrPlot.png")
-cor <- cor(microvan[,2:32])
+cor_with_mvliking <- cor(vars[,-1])
 png(
   filename = corrPlot,
-  width = 1200,
-  height = 1200
+  width = 1500,
+  height = 1500
 )
 
-corrplot(cor, 
+corrplot(cor_with_mvliking, 
          method="number", 
          type="upper", 
          order = "hclust", # reorder by the size of the correlation coefficients
-         tl.cex = 1,     # font size of the variable labels
+         tl.cex = 1.4,     # font size of the variable labels
          tl.col = "black", # color of the variable labels
          tl.srt = 45,      # rotation angle for the variable labels
-         number.cex = 1    # font size of the coefficients
+         number.cex = 1.4    # font size of the coefficients
 )
 invisible(dev.off())
 
@@ -102,30 +105,4 @@ knitr::include_graphics(corrPlot )
 ```
 
 
-
-## Eigenvalues
-```{r}
-EV = eigen(cor)$values
-EV
-```
-
-### Scree Plot
-```{r}
-scree(cor, pc = TRUE, factors = FALSE)
-
-```
-
-### Cumulative Percentages of Variance 
-```{r}
-# Shares for the cumulative variance explained
-plot(cumsum(EV/length(EV)), 
-     type = "o", # type of plot: "o" for points and lines 'overplotted'
-     col = "darkblue",
-     pch = 16, # plot symbol: 16 = filled circle
-     cex = 1, # size of plot symbols
-     xlab = "Number of factors", # a title for the x axis
-     ylab = "Cumulative variance explained", # a title for the y axis
-     lwd = 2) # line width
-abline(v = 5, lwd = 2, col = "grey") # draw a vertical line at v = 3
-```
 

@@ -1,0 +1,28 @@
+# Clustering
+
+```{r}
+EFA_feature = EFA_with_score %>%
+  dplyr::select(PA1, PA2,PA4)
+
+# Run a cluster analysis on a distance matrix and using the Ward method
+c<- hclust(dist(EFA_feature), method="ward.D2") 
+
+# Dendrogram 
+library(dendextend)
+plot(set(as.dendrogram(c),  
+         "branches_k_color", # to highlight the cluster solution with a color
+         k = 3),
+     ylab = "Distance",
+     main = "Dendrogram",
+     cex = 0.2)
+
+set.seed(42)
+EFA_kmeans <- kmeans(EFA_feature , centers = 3)
+EFA_kmeans
+
+# factor plot 
+fviz_cluster(EFA_kmeans, 
+             data = EFA_feature) + 
+  theme_bw()
+
+```

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter5 Clustering | Microvan</title>
+  <title>Chapter6 Clustering | Microvan</title>
   <meta name="description" content="Capstone Project" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter5 Clustering | Microvan" />
+  <meta property="og:title" content="Chapter6 Clustering | Microvan" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Capstone Project" />
   <meta name="github-repo" content="gogomba/microvan" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter5 Clustering | Microvan" />
+  <meta name="twitter:title" content="Chapter6 Clustering | Microvan" />
   
   <meta name="twitter:description" content="Capstone Project" />
   
@@ -23,15 +23,15 @@
 <meta name="author" content="Hammond" />
 
 
-<meta name="date" content="2022-05-26" />
+<meta name="date" content="2022-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="exploratory-factor-analysis.html"/>
-<link rel="next" href="regression.html"/>
+<link rel="prev" href="regression-with-3-factors.html"/>
+<link rel="next" href="discussion.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 <style type="text/css">
@@ -138,31 +140,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
 <li class="chapter" data-level="1" data-path="executive-summary.html"><a href="executive-summary.html"><i class="fa fa-check"></i><b>1</b> Executive Summary</a></li>
-<li class="chapter" data-level="2" data-path="data-verification.html"><a href="data-verification.html"><i class="fa fa-check"></i><b>2</b> Data verification</a></li>
-<li class="chapter" data-level="3" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html"><i class="fa fa-check"></i><b>3</b> Explorative Data Analysis</a>
+<li class="chapter" data-level="2" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html"><i class="fa fa-check"></i><b>2</b> Explorative Data Analysis</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#correlation-analysis"><i class="fa fa-check"></i><b>3.1</b> Correlation Analysis</a>
+<li class="chapter" data-level="2.1" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#correlation-analysis"><i class="fa fa-check"></i><b>2.1</b> Correlation Analysis</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#pair-wise-scatter-plot"><i class="fa fa-check"></i><b>3.1.1</b> Pair-wise Scatter Plot</a></li>
-<li class="chapter" data-level="3.1.2" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#correlation-matrix"><i class="fa fa-check"></i><b>3.1.2</b> Correlation Matrix</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#eigenvalues"><i class="fa fa-check"></i><b>3.2</b> Eigenvalues</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#scree-plot"><i class="fa fa-check"></i><b>3.2.1</b> Scree Plot</a></li>
-<li class="chapter" data-level="3.2.2" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#cumulative-percentages-of-variance"><i class="fa fa-check"></i><b>3.2.2</b> Cumulative Percentages of Variance</a></li>
+<li class="chapter" data-level="2.1.1" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#pair-wise-scatter-plot"><i class="fa fa-check"></i><b>2.1.1</b> Pair-wise Scatter Plot</a></li>
+<li class="chapter" data-level="2.1.2" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#correlation-matrix"><i class="fa fa-check"></i><b>2.1.2</b> Correlation Matrix</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html"><i class="fa fa-check"></i><b>4</b> Exploratory Factor Analysis</a>
+<li class="chapter" data-level="3" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html"><i class="fa fa-check"></i><b>3</b> Exploratory Factor Analysis</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#communality"><i class="fa fa-check"></i><b>4.1</b> Communality</a></li>
-<li class="chapter" data-level="4.2" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#factor-loadings"><i class="fa fa-check"></i><b>4.2</b> Factor Loadings</a></li>
+<li class="chapter" data-level="3.1" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#eigenvalues"><i class="fa fa-check"></i><b>3.1</b> Eigenvalues</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#scree-plot"><i class="fa fa-check"></i><b>3.1.1</b> Scree Plot</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#cumulative-percentages-of-variance"><i class="fa fa-check"></i><b>3.1.2</b> Cumulative Percentages of Variance</a></li>
+<li class="chapter" data-level="3.1.3" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#select-number-of-factors-using-kaiser-rule"><i class="fa fa-check"></i><b>3.1.3</b> Select Number of Factors using Kaiser Rule</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>5</b> Clustering</a></li>
-<li class="chapter" data-level="6" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>6</b> Regression</a></li>
+<li class="chapter" data-level="3.2" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#extract-principal-factors"><i class="fa fa-check"></i><b>3.2</b> Extract Principal Factors</a></li>
+<li class="chapter" data-level="3.3" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#factor-loadings"><i class="fa fa-check"></i><b>3.3</b> Factor Loadings</a></li>
+<li class="chapter" data-level="3.4" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#factor-scores"><i class="fa fa-check"></i><b>3.4</b> Factor Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="regression-with-5-factors.html"><a href="regression-with-5-factors.html"><i class="fa fa-check"></i><b>4</b> Regression with 5 Factors</a></li>
+<li class="chapter" data-level="5" data-path="regression-with-3-factors.html"><a href="regression-with-3-factors.html"><i class="fa fa-check"></i><b>5</b> Regression with 3 Factors</a></li>
+<li class="chapter" data-level="6" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>6</b> Clustering</a></li>
 <li class="chapter" data-level="7" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>7</b> Discussion</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="" target="blank">GitHub</a></li>
+<li><a href="https://github.com/gogomba/microvan" target="blank">GitHub</a></li>
 
 </ul>
 
@@ -181,8 +185,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="clustering" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter5</span> Clustering<a href="clustering.html#clustering" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="clustering" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter6</span> Clustering<a href="clustering.html#clustering" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="clustering.html#cb20-1" aria-hidden="true" tabindex="-1"></a>EFA_feature <span class="ot">=</span> EFA_with_score <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="clustering.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(PA1, PA2,PA4)</span>
+<span id="cb20-3"><a href="clustering.html#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="clustering.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a cluster analysis on a distance matrix and using the Ward method</span></span>
+<span id="cb20-5"><a href="clustering.html#cb20-5" aria-hidden="true" tabindex="-1"></a>c<span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(EFA_feature), <span class="at">method=</span><span class="st">&quot;ward.D2&quot;</span>) </span>
+<span id="cb20-6"><a href="clustering.html#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="clustering.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Dendrogram </span></span>
+<span id="cb20-8"><a href="clustering.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dendextend)</span>
+<span id="cb20-9"><a href="clustering.html#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">set</span>(<span class="fu">as.dendrogram</span>(c),  </span>
+<span id="cb20-10"><a href="clustering.html#cb20-10" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;branches_k_color&quot;</span>, <span class="co"># to highlight the cluster solution with a color</span></span>
+<span id="cb20-11"><a href="clustering.html#cb20-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">k =</span> <span class="dv">3</span>),</span>
+<span id="cb20-12"><a href="clustering.html#cb20-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Distance&quot;</span>,</span>
+<span id="cb20-13"><a href="clustering.html#cb20-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Dendrogram&quot;</span>,</span>
+<span id="cb20-14"><a href="clustering.html#cb20-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex =</span> <span class="fl">0.2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="clustering.html#cb21-1" aria-hidden="true" tabindex="-1"></a>EFA_kmeans <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(EFA_feature , <span class="at">centers =</span> <span class="dv">3</span>)</span>
+<span id="cb21-2"><a href="clustering.html#cb21-2" aria-hidden="true" tabindex="-1"></a>EFA_kmeans</span></code></pre></div>
+<pre><code>## K-means clustering with 3 clusters of sizes 157, 125, 118
+## 
+## Cluster means:
+##     PA1    PA2    PA4
+## 1 -1.01 -0.038 -0.064
+## 2  0.61  1.117  0.069
+## 3  0.70 -1.133  0.013
+## 
+## Clustering vector:
+##   [1] 1 2 3 2 3 3 2 1 3 1 1 3 1 3 2 2 2 2 1 1 1 1 2 1 1 3 1 2 1 3 1 3 1 3
+##  [35] 3 3 3 2 3 3 2 1 1 1 1 2 1 3 3 1 3 3 1 3 1 1 2 3 2 1 3 1 1 1 2 1 1 2
+##  [69] 2 3 2 1 1 3 3 1 1 3 1 2 3 1 1 1 3 1 1 3 1 1 3 2 1 2 3 3 3 1 1 1 1 3
+## [103] 1 1 1 2 1 2 3 3 2 2 1 2 1 2 2 1 1 1 3 1 2 3 2 1 1 1 2 1 3 3 3 2 2 3
+## [137] 3 3 2 2 2 3 1 1 2 1 2 2 1 1 3 1 2 2 3 1 2 1 3 2 2 3 2 1 1 1 3 3 1 3
+## [171] 2 1 1 2 3 2 3 2 2 3 1 1 2 3 2 1 3 1 1 3 2 3 1 1 2 1 1 2 2 1 2 1 3 1
+## [205] 3 3 1 3 1 2 3 2 1 3 3 1 3 2 1 3 2 1 3 1 3 1 2 1 2 1 1 3 3 3 3 3 3 2
+## [239] 1 2 1 2 2 1 3 1 2 3 1 1 3 1 2 2 2 1 3 1 1 2 3 3 3 2 3 2 1 1 2 1 3 1
+## [273] 3 1 2 3 2 1 1 2 3 2 2 2 3 1 1 3 2 2 2 1 1 2 2 1 3 2 2 3 2 1 3 2 1 3
+## [307] 2 2 3 1 1 1 1 2 1 2 1 2 2 3 1 2 1 2 1 2 1 1 1 2 2 1 3 2 2 1 1 1 2 1
+## [341] 3 3 3 3 3 2 1 2 3 1 2 1 3 1 3 2 2 2 3 2 2 2 1 2 1 1 1 2 2 1 3 3 2 2
+## [375] 2 3 2 1 3 3 2 3 3 2 1 1 3 1 3 1 3 1 2 3 3 1 1 2 2 1
+## 
+## Within cluster sum of squares by cluster:
+## [1] 255 207 162
+##  (between_SS / total_SS =  47.9 %)
+## 
+## Available components:
+## 
+## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;    
+## [5] &quot;tot.withinss&quot; &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;        
+## [9] &quot;ifault&quot;</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="clustering.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># factor plot </span></span>
+<span id="cb23-2"><a href="clustering.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(EFA_kmeans, </span>
+<span id="cb23-3"><a href="clustering.html#cb23-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> EFA_feature) <span class="sc">+</span> </span>
+<span id="cb23-4"><a href="clustering.html#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-2.png" width="672" /></p>
 
 </div>
             </section>
@@ -190,8 +247,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="exploratory-factor-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regression-with-3-factors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="discussion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -222,7 +279,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/gogomba/microvan/04-clustering.Rmd",
+"link": "https://github.com/gogomba/microvan/05-clustering.Rmd",
 "text": "Edit"
 },
 "history": {

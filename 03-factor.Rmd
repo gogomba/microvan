@@ -1,30 +1,106 @@
 # Exploratory Factor Analysis 
 ***
+## Eigenvalues
 ```{r}
-EFA1 <- fa(r = cor, 
-           nfactors = 5, 
-           fm = "pa", 
-           rotate = "none") 
+# correlation analysis without mvliking
+cor<- cor(vars[,-1])
+
+EV = eigen(cor)$values
+EV_df = EV %>%
+  # convert to df
+  as.data.frame()%>%
+  # name column 
+  dplyr::rename(., "Eigen Value" =".") %>%
+  # add a column "Factor"
+  dplyr::mutate(Factor = seq(1,length(EV))) %>%
+  # order columns
+  dplyr::select(Factor, everything()) %>%
+  # add a column "Variance"
+  dplyr::mutate(`Variance %` = EV/length(EV) *100) %>%
+  dplyr::mutate(`Cumulative Variance % ` = cumsum(EV/length(EV))* 100) %>%
+  dplyr::mutate(., across(where(is.numeric), round, 1))
+
+rmarkdown::paged_table(EV_df )
 ```
-## Communality 
+
+### Scree Plot
 ```{r}
-sort(EFA1$communality)
+psych::scree(cor, pc = TRUE, factors = FALSE)
 ```
 
-## Factor Loadings
+### Cumulative Percentages of Variance 
 ```{r}
-# Factor loadings
-L <- unclass(EFA1$loadings) 
-round(L, 3)
+# Shares for the cumulative variance explained
+plot(cumsum(EV/length(EV)), 
+     type = "o", # type of plot: "o" for points and lines 'overplotted'
+     col = "darkblue",
+     pch = 16, # plot symbol: 16 = filled circle
+     cex = 1, # size of plot symbols
+     xlab = "Number of factors", # a title for the x axis
+     ylab = "Cumulative variance explained", # a title for the y axis
+     lwd = 2) # line width
+abline(v = 5, lwd = 2, col = "grey") # draw a vertical line at v = 3
+```
 
-EFA2 <- fa(r = cor, 
-           nfactors = 5, 
-           fm = "pa", 
-           rotate = "varimax") 
+### Select Number of Factors using Kaiser Rule 
+```{r}
+nFactor <- length(which(EV > 1)) 
+print(paste0(nFactor, " factors with Eigenvalue > 1" ))
+```
 
-print(EFA2, 
-      digits = 3, # to round numbers to the third digit 
-      cut = 0.35, # to show only values > 0.35
-      sort = TRUE # to sort rows by loading size
+## Extract Principal Factors
+```{r}
+EFA <- psych::fa(
+  r = cor,
+  # number of factors
+  nfactors = nFactor,
+  # principal factor
+  fm = "pa",
+  # maximizes the sum of the variance of the squared loadings
+  rotate = "varimax"
 )
 ```
+
+##  Factor Loadings
+```{r}
+options(digits = 2)
+columnOrder <- c("PA1", "PA2", "PA3", "PA4","PA5","Communality","Uniqueness")
+
+EFA_loadings <- data.frame(EFA$loadings[,]
+                           ) %>%
+  dplyr::mutate(Uniqueness = EFA$uniquenesses,
+                Communality = EFA$communality) %>%
+  dplyr::mutate(., across(where(is.numeric), round, 2)) %>%
+  dplyr::select(columnOrder) %>%
+  arrange(., -Communality)
+  
+```
+```{r}
+# a function to highlight cells value > 0.5 or < -0.5
+colorCell <- function(x, n, nmax){
+  cell_spec(x, background = ifelse(is.na(as.numeric(x)), "white",
+                                   ifelse(n == nmax | n == 1, "white",
+                                          ifelse(abs(x) >=0.5, "lightgreen",
+                                                 ifelse(x < 0.5, "white", "white")))))
+}
+
+# show table in rMarkdown
+EFA_loading_table = EFA_loadings %>% 
+  mutate_all(funs(colorCell(., 
+                      n = row_number(), 
+                      nmax = n()))) %>% 
+  kable(escape = FALSE) %>% 
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "center") 
+
+paged_table(EFA_loadings)
+```
+
+## Factor Scores
+```{r}
+# extract rotated factor scores 
+EFA.scores = factor.scores(vars[,-1], 
+                           unclass(EFA$loadings))$scores
+
+```
+
+

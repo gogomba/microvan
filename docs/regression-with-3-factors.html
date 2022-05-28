@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter1 Executive Summary | Microvan</title>
+  <title>Chapter5 Regression with 3 Factors | Microvan</title>
   <meta name="description" content="Capstone Project" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter1 Executive Summary | Microvan" />
+  <meta property="og:title" content="Chapter5 Regression with 3 Factors | Microvan" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Capstone Project" />
   <meta name="github-repo" content="gogomba/microvan" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter1 Executive Summary | Microvan" />
+  <meta name="twitter:title" content="Chapter5 Regression with 3 Factors | Microvan" />
   
   <meta name="twitter:description" content="Capstone Project" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="explorative-data-analysis.html"/>
+<link rel="prev" href="regression-with-5-factors.html"/>
+<link rel="next" href="clustering.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -185,12 +185,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="executive-summary" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter1</span> Executive Summary<a href="executive-summary.html#executive-summary" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The case describes a project by Grosse Pointe Associates (GPA) investigating the potential market for “microvans”. The objectives of this case are:
-1. To give you experience segmenting customers in a market
-2. To have you determine which segment(s) would be good to target based on analysis of the data.
-3. To have you relate the segment(s) to demographic variables potentially useful for targeting.</p>
+<div id="regression-with-3-factors" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter5</span> Regression with 3 Factors<a href="regression-with-3-factors.html#regression-with-3-factors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="regression-with-3-factors.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data for regression </span></span>
+<span id="cb17-2"><a href="regression-with-3-factors.html#cb17-2" aria-hidden="true" tabindex="-1"></a>EFA_model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mvliking <span class="sc">~</span> PA1 <span class="sc">+</span> PA3  <span class="sc">+</span> PA5, </span>
+<span id="cb17-3"><a href="regression-with-3-factors.html#cb17-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">data=</span>EFA_with_score )</span>
+<span id="cb17-4"><a href="regression-with-3-factors.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="regression-with-3-factors.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(EFA_model2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mvliking ~ PA1 + PA3 + PA5, data = EFA_with_score)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.7268 -0.0841 -0.0035  0.0910  0.9816 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -1.06e-16   7.78e-03    0.00    1.000    
+## PA1          1.22e-01   7.79e-03   15.68   &lt;2e-16 ***
+## PA3          9.80e-01   7.79e-03  125.82   &lt;2e-16 ***
+## PA5         -2.42e-02   7.79e-03   -3.11    0.002 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.16 on 396 degrees of freedom
+## Multiple R-squared:  0.976,  Adjusted R-squared:  0.976 
+## F-statistic: 5.36e+03 on 3 and 396 DF,  p-value: &lt;2e-16</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="regression-with-3-factors.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge with all previous data</span></span>
+<span id="cb19-2"><a href="regression-with-3-factors.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#EFA_merge_data &lt;- cbind(microvan, EFA.scores)</span></span>
+<span id="cb19-3"><a href="regression-with-3-factors.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#head(EFA_merge_data)</span></span></code></pre></div>
 
 </div>
             </section>
@@ -198,8 +222,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="explorative-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regression-with-5-factors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="clustering.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -230,7 +254,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/gogomba/microvan/01-summay.Rmd",
+"link": "https://github.com/gogomba/microvan/04-regression.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter4 Exploratory Factor Analysis | Microvan</title>
+  <title>Chapter3 Exploratory Factor Analysis | Microvan</title>
   <meta name="description" content="Capstone Project" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter4 Exploratory Factor Analysis | Microvan" />
+  <meta property="og:title" content="Chapter3 Exploratory Factor Analysis | Microvan" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Capstone Project" />
   <meta name="github-repo" content="gogomba/microvan" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter4 Exploratory Factor Analysis | Microvan" />
+  <meta name="twitter:title" content="Chapter3 Exploratory Factor Analysis | Microvan" />
   
   <meta name="twitter:description" content="Capstone Project" />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Hammond" />
 
 
-<meta name="date" content="2022-05-26" />
+<meta name="date" content="2022-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="explorative-data-analysis.html"/>
-<link rel="next" href="clustering.html"/>
+<link rel="next" href="regression-with-5-factors.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 <style type="text/css">
@@ -138,31 +140,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
 <li class="chapter" data-level="1" data-path="executive-summary.html"><a href="executive-summary.html"><i class="fa fa-check"></i><b>1</b> Executive Summary</a></li>
-<li class="chapter" data-level="2" data-path="data-verification.html"><a href="data-verification.html"><i class="fa fa-check"></i><b>2</b> Data verification</a></li>
-<li class="chapter" data-level="3" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html"><i class="fa fa-check"></i><b>3</b> Explorative Data Analysis</a>
+<li class="chapter" data-level="2" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html"><i class="fa fa-check"></i><b>2</b> Explorative Data Analysis</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#correlation-analysis"><i class="fa fa-check"></i><b>3.1</b> Correlation Analysis</a>
+<li class="chapter" data-level="2.1" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#correlation-analysis"><i class="fa fa-check"></i><b>2.1</b> Correlation Analysis</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#pair-wise-scatter-plot"><i class="fa fa-check"></i><b>3.1.1</b> Pair-wise Scatter Plot</a></li>
-<li class="chapter" data-level="3.1.2" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#correlation-matrix"><i class="fa fa-check"></i><b>3.1.2</b> Correlation Matrix</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#eigenvalues"><i class="fa fa-check"></i><b>3.2</b> Eigenvalues</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#scree-plot"><i class="fa fa-check"></i><b>3.2.1</b> Scree Plot</a></li>
-<li class="chapter" data-level="3.2.2" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#cumulative-percentages-of-variance"><i class="fa fa-check"></i><b>3.2.2</b> Cumulative Percentages of Variance</a></li>
+<li class="chapter" data-level="2.1.1" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#pair-wise-scatter-plot"><i class="fa fa-check"></i><b>2.1.1</b> Pair-wise Scatter Plot</a></li>
+<li class="chapter" data-level="2.1.2" data-path="explorative-data-analysis.html"><a href="explorative-data-analysis.html#correlation-matrix"><i class="fa fa-check"></i><b>2.1.2</b> Correlation Matrix</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html"><i class="fa fa-check"></i><b>4</b> Exploratory Factor Analysis</a>
+<li class="chapter" data-level="3" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html"><i class="fa fa-check"></i><b>3</b> Exploratory Factor Analysis</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#communality"><i class="fa fa-check"></i><b>4.1</b> Communality</a></li>
-<li class="chapter" data-level="4.2" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#factor-loadings"><i class="fa fa-check"></i><b>4.2</b> Factor Loadings</a></li>
+<li class="chapter" data-level="3.1" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#eigenvalues"><i class="fa fa-check"></i><b>3.1</b> Eigenvalues</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#scree-plot"><i class="fa fa-check"></i><b>3.1.1</b> Scree Plot</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#cumulative-percentages-of-variance"><i class="fa fa-check"></i><b>3.1.2</b> Cumulative Percentages of Variance</a></li>
+<li class="chapter" data-level="3.1.3" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#select-number-of-factors-using-kaiser-rule"><i class="fa fa-check"></i><b>3.1.3</b> Select Number of Factors using Kaiser Rule</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>5</b> Clustering</a></li>
-<li class="chapter" data-level="6" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>6</b> Regression</a></li>
+<li class="chapter" data-level="3.2" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#extract-principal-factors"><i class="fa fa-check"></i><b>3.2</b> Extract Principal Factors</a></li>
+<li class="chapter" data-level="3.3" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#factor-loadings"><i class="fa fa-check"></i><b>3.3</b> Factor Loadings</a></li>
+<li class="chapter" data-level="3.4" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#factor-scores"><i class="fa fa-check"></i><b>3.4</b> Factor Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="regression-with-5-factors.html"><a href="regression-with-5-factors.html"><i class="fa fa-check"></i><b>4</b> Regression with 5 Factors</a></li>
+<li class="chapter" data-level="5" data-path="regression-with-3-factors.html"><a href="regression-with-3-factors.html"><i class="fa fa-check"></i><b>5</b> Regression with 3 Factors</a></li>
+<li class="chapter" data-level="6" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>6</b> Clustering</a></li>
 <li class="chapter" data-level="7" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>7</b> Discussion</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="" target="blank">GitHub</a></li>
+<li><a href="https://github.com/gogomba/microvan" target="blank">GitHub</a></li>
 
 </ul>
 
@@ -181,136 +185,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exploratory-factor-analysis" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter4</span> Exploratory Factor Analysis<a href="exploratory-factor-analysis.html#exploratory-factor-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="exploratory-factor-analysis" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter3</span> Exploratory Factor Analysis<a href="exploratory-factor-analysis.html#exploratory-factor-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <hr />
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="exploratory-factor-analysis.html#cb8-1" aria-hidden="true" tabindex="-1"></a>EFA1 <span class="ot">&lt;-</span> <span class="fu">fa</span>(<span class="at">r =</span> cor, </span>
-<span id="cb8-2"><a href="exploratory-factor-analysis.html#cb8-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">nfactors =</span> <span class="dv">5</span>, </span>
-<span id="cb8-3"><a href="exploratory-factor-analysis.html#cb8-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">fm =</span> <span class="st">&quot;pa&quot;</span>, </span>
-<span id="cb8-4"><a href="exploratory-factor-analysis.html#cb8-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">rotate =</span> <span class="st">&quot;none&quot;</span>) </span></code></pre></div>
-<div id="communality" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Communality<a href="exploratory-factor-analysis.html#communality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="exploratory-factor-analysis.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(EFA1<span class="sc">$</span>communality)</span></code></pre></div>
-<pre><code>##  mvliking  nohummer  imprtapp  twoincom  secbiggr  needbetw  prmsound 
-## 0.3737786 0.4310835 0.4942658 0.4946541 0.5207790 0.5308994 0.5400263 
-##  pricqual  next2str  stylclth  strngwrn  aftrschl  passnimp  kidsbulk 
-## 0.5598910 0.5769805 0.5924357 0.6010499 0.6015515 0.6140513 0.6258272 
-##  wntguzlr  noparkrm  buyhghnd  accesfun  lthrbetr  homlrgst  tkvacatn 
-## 0.6292809 0.6424402 0.6536594 0.6601460 0.6644355 0.6694161 0.6797770 
-##  suvcmpct  nordtrps  lk4whldr  miniboxy  envrminr  shdcarpl  carefmny 
-## 0.6885576 0.6899717 0.6910596 0.7104083 0.7234733 0.7275715 0.7309799 
-##  perfimpt  safeimpt  kidtrans 
-## 0.7422045 0.7877680 0.9272560</code></pre>
+<div id="eigenvalues" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Eigenvalues<a href="exploratory-factor-analysis.html#eigenvalues" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="exploratory-factor-analysis.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># correlation analysis without mvliking</span></span>
+<span id="cb5-2"><a href="exploratory-factor-analysis.html#cb5-2" aria-hidden="true" tabindex="-1"></a>cor<span class="ot">&lt;-</span> <span class="fu">cor</span>(vars[,<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb5-3"><a href="exploratory-factor-analysis.html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="exploratory-factor-analysis.html#cb5-4" aria-hidden="true" tabindex="-1"></a>EV <span class="ot">=</span> <span class="fu">eigen</span>(cor)<span class="sc">$</span>values</span>
+<span id="cb5-5"><a href="exploratory-factor-analysis.html#cb5-5" aria-hidden="true" tabindex="-1"></a>EV_df <span class="ot">=</span> EV <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="exploratory-factor-analysis.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># convert to df</span></span>
+<span id="cb5-7"><a href="exploratory-factor-analysis.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href="exploratory-factor-analysis.html#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># name column </span></span>
+<span id="cb5-9"><a href="exploratory-factor-analysis.html#cb5-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(., <span class="st">&quot;Eigen Value&quot;</span> <span class="ot">=</span><span class="st">&quot;.&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a href="exploratory-factor-analysis.html#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add a column &quot;Factor&quot;</span></span>
+<span id="cb5-11"><a href="exploratory-factor-analysis.html#cb5-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Factor =</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="fu">length</span>(EV))) <span class="sc">%&gt;%</span></span>
+<span id="cb5-12"><a href="exploratory-factor-analysis.html#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># order columns</span></span>
+<span id="cb5-13"><a href="exploratory-factor-analysis.html#cb5-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Factor, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb5-14"><a href="exploratory-factor-analysis.html#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add a column &quot;Variance&quot;</span></span>
+<span id="cb5-15"><a href="exploratory-factor-analysis.html#cb5-15" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="st">`</span><span class="at">Variance %</span><span class="st">`</span> <span class="ot">=</span> EV<span class="sc">/</span><span class="fu">length</span>(EV) <span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-16"><a href="exploratory-factor-analysis.html#cb5-16" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="st">`</span><span class="at">Cumulative Variance % </span><span class="st">`</span> <span class="ot">=</span> <span class="fu">cumsum</span>(EV<span class="sc">/</span><span class="fu">length</span>(EV))<span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-17"><a href="exploratory-factor-analysis.html#cb5-17" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(., <span class="fu">across</span>(<span class="fu">where</span>(is.numeric), round, <span class="dv">1</span>))</span>
+<span id="cb5-18"><a href="exploratory-factor-analysis.html#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="exploratory-factor-analysis.html#cb5-19" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(EV_df )</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Factor"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Eigen Value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Variance %"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Cumulative Variance % "],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"8.3","3":"27.6","4":"28"},{"1":"2","2":"5.0","3":"16.7","4":"44"},{"1":"3","2":"3.1","3":"10.3","4":"54"},{"1":"4","2":"2.7","3":"9.0","4":"64"},{"1":"5","2":"1.8","3":"6.0","4":"70"},{"1":"6","2":"0.6","3":"2.1","4":"72"},{"1":"7","2":"0.6","3":"1.9","4":"74"},{"1":"8","2":"0.5","3":"1.8","4":"75"},{"1":"9","2":"0.5","3":"1.8","4":"77"},{"1":"10","2":"0.5","3":"1.7","4":"79"},{"1":"11","2":"0.5","3":"1.6","4":"80"},{"1":"12","2":"0.4","3":"1.4","4":"82"},{"1":"13","2":"0.4","3":"1.4","4":"83"},{"1":"14","2":"0.4","3":"1.4","4":"85"},{"1":"15","2":"0.4","3":"1.3","4":"86"},{"1":"16","2":"0.4","3":"1.3","4":"87"},{"1":"17","2":"0.4","3":"1.2","4":"88"},{"1":"18","2":"0.3","3":"1.2","4":"90"},{"1":"19","2":"0.3","3":"1.1","4":"91"},{"1":"20","2":"0.3","3":"1.1","4":"92"},{"1":"21","2":"0.3","3":"1.0","4":"93"},{"1":"22","2":"0.3","3":"1.0","4":"94"},{"1":"23","2":"0.3","3":"1.0","4":"95"},{"1":"24","2":"0.3","3":"0.9","4":"96"},{"1":"25","2":"0.2","3":"0.8","4":"97"},{"1":"26","2":"0.2","3":"0.8","4":"97"},{"1":"27","2":"0.2","3":"0.8","4":"98"},{"1":"28","2":"0.2","3":"0.7","4":"99"},{"1":"29","2":"0.2","3":"0.7","4":"100"},{"1":"30","2":"0.1","3":"0.5","4":"100"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
-<div id="factor-loadings" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Factor Loadings<a href="exploratory-factor-analysis.html#factor-loadings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="exploratory-factor-analysis.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor loadings</span></span>
-<span id="cb11-2"><a href="exploratory-factor-analysis.html#cb11-2" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">unclass</span>(EFA1<span class="sc">$</span>loadings) </span>
-<span id="cb11-3"><a href="exploratory-factor-analysis.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(L, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##             PA1    PA2    PA3    PA4    PA5
-## mvliking  0.301  0.409 -0.132 -0.193  0.246
-## kidtrans  0.458 -0.016  0.596 -0.568 -0.198
-## miniboxy  0.107  0.822 -0.050  0.143  0.018
-## lthrbetr  0.779 -0.192 -0.086 -0.037  0.105
-## secbiggr -0.015  0.712  0.040 -0.023 -0.110
-## safeimpt  0.183 -0.047  0.580  0.644  0.023
-## buyhghnd  0.692  0.164 -0.110  0.089  0.356
-## pricqual  0.517 -0.165 -0.167  0.011  0.487
-## prmsound  0.720 -0.031 -0.106  0.025  0.090
-## perfimpt -0.075  0.013 -0.606 -0.605  0.057
-## tkvacatn  0.808 -0.046 -0.147 -0.027 -0.055
-## noparkrm  0.128  0.782  0.044  0.023  0.109
-## homlrgst  0.442 -0.679 -0.089 -0.001 -0.070
-## envrminr -0.472 -0.006  0.412 -0.249  0.519
-## needbetw  0.142  0.708  0.021  0.095  0.005
-## suvcmpct  0.184  0.792  0.140 -0.047 -0.073
-## next2str  0.170 -0.697  0.000 -0.136  0.208
-## carefmny -0.829 -0.129  0.107 -0.029 -0.120
-## shdcarpl  0.482 -0.066 -0.358  0.277 -0.535
-## imprtapp  0.694 -0.043  0.077  0.027 -0.068
-## lk4whldr  0.327 -0.064  0.439  0.622  0.012
-## kidsbulk  0.478 -0.004  0.444 -0.414 -0.168
-## wntguzlr -0.596  0.052  0.364 -0.143  0.344
-## nordtrps -0.393 -0.075 -0.537  0.440  0.217
-## stylclth  0.717  0.213 -0.173 -0.005 -0.054
-## strngwrn  0.378 -0.322  0.366  0.462  0.085
-## passnimp -0.767 -0.004  0.005  0.157 -0.017
-## twoincom  0.538  0.114 -0.120  0.109  0.408
-## nohummer  0.074  0.645  0.088  0.043  0.011
-## aftrschl  0.422 -0.131  0.551 -0.320 -0.019
-## accesfun  0.800 -0.050 -0.102 -0.082  0.006</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="exploratory-factor-analysis.html#cb13-1" aria-hidden="true" tabindex="-1"></a>EFA2 <span class="ot">&lt;-</span> <span class="fu">fa</span>(<span class="at">r =</span> cor, </span>
-<span id="cb13-2"><a href="exploratory-factor-analysis.html#cb13-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">nfactors =</span> <span class="dv">5</span>, </span>
-<span id="cb13-3"><a href="exploratory-factor-analysis.html#cb13-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">fm =</span> <span class="st">&quot;pa&quot;</span>, </span>
-<span id="cb13-4"><a href="exploratory-factor-analysis.html#cb13-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">rotate =</span> <span class="st">&quot;varimax&quot;</span>) </span>
-<span id="cb13-5"><a href="exploratory-factor-analysis.html#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="exploratory-factor-analysis.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(EFA2, </span>
-<span id="cb13-7"><a href="exploratory-factor-analysis.html#cb13-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">3</span>, <span class="co"># to round numbers to the third digit </span></span>
-<span id="cb13-8"><a href="exploratory-factor-analysis.html#cb13-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">cut =</span> <span class="fl">0.35</span>, <span class="co"># to show only values &gt; 0.35</span></span>
-<span id="cb13-9"><a href="exploratory-factor-analysis.html#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">sort =</span> <span class="cn">TRUE</span> <span class="co"># to sort rows by loading size</span></span>
-<span id="cb13-10"><a href="exploratory-factor-analysis.html#cb13-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## Factor Analysis using method =  pa
-## Call: fa(r = cor, nfactors = 5, rotate = &quot;varimax&quot;, fm = &quot;pa&quot;)
-## Standardized loadings (pattern matrix) based upon correlation matrix
-##          item    PA1    PA2    PA3    PA5    PA4    h2     u2  com
-## buyhghnd    7  0.781                             0.654 0.3463 1.15
-## carefmny   18 -0.761                             0.731 0.2690 1.55
-## pricqual    8  0.718                             0.560 0.4401 1.17
-## lthrbetr    4  0.703                             0.664 0.3356 1.73
-## twoincom   28  0.685                             0.495 0.5053 1.11
-## accesfun   31  0.671                0.352        0.660 0.3399 1.93
-## tkvacatn   11  0.655                0.433        0.680 0.3202 2.08
-## prmsound    9  0.654                             0.540 0.4600 1.53
-## passnimp   27 -0.630        -0.379               0.614 0.3859 2.06
-## stylclth   25  0.592                0.400        0.592 0.4076 2.31
-## imprtapp   20  0.505                             0.494 0.5057 2.81
-## mvliking    1  0.413  0.383                      0.374 0.6262 2.64
-## miniboxy    3         0.826                      0.710 0.2896 1.08
-## suvcmpct   16         0.802                      0.689 0.3114 1.14
-## noparkrm   12         0.781                      0.642 0.3576 1.11
-## needbetw   15         0.716                      0.531 0.4691 1.07
-## secbiggr    5         0.713                      0.521 0.4792 1.05
-## next2str   17        -0.707                      0.577 0.4230 1.32
-## homlrgst   13        -0.664                      0.669 0.3306 2.08
-## nohummer   29         0.652                      0.431 0.5689 1.03
-## kidtrans    2                0.954               0.927 0.0727 1.04
-## nordtrps   24               -0.820               0.690 0.3100 1.05
-## kidsbulk   22                0.764               0.626 0.3742 1.14
-## aftrschl   30                0.714               0.602 0.3984 1.38
-## shdcarpl   19                       0.829        0.728 0.2724 1.12
-## envrminr   14                      -0.824        0.723 0.2765 1.13
-## wntguzlr   23 -0.376               -0.698        0.629 0.3707 1.54
-## safeimpt    6                              0.884 0.788 0.2122 1.02
-## perfimpt   10                             -0.848 0.742 0.2578 1.07
-## lk4whldr   21                              0.807 0.691 0.3089 1.13
-## strngwrn   26                              0.674 0.601 0.3990 1.68
-## 
-##                         PA1   PA2   PA3   PA5   PA4
-## SS loadings           5.806 4.745 3.345 2.901 2.779
-## Proportion Var        0.187 0.153 0.108 0.094 0.090
-## Cumulative Var        0.187 0.340 0.448 0.542 0.631
-## Proportion Explained  0.297 0.242 0.171 0.148 0.142
-## Cumulative Proportion 0.297 0.539 0.710 0.858 1.000
-## 
-## Mean item complexity =  1.5
-## Test of the hypothesis that 5 factors are sufficient.
-## 
-## The degrees of freedom for the null model are  465  and the objective function was  20.778
-## The degrees of freedom for the model are 320  and the objective function was  0.779 
-## 
-## The root mean square of the residuals (RMSR) is  0.015 
-## The df corrected root mean square of the residuals is  0.018 
-## 
-## Fit based upon off diagonal values = 0.998
-## Measures of factor score adequacy             
-##                                                     PA1   PA2   PA3   PA5
-## Correlation of (regression) scores with factors   0.952 0.962 0.972 0.930
-## Multiple R square of scores with factors          0.907 0.926 0.945 0.864
-## Minimum correlation of possible factor scores     0.814 0.852 0.890 0.729
-##                                                     PA4
-## Correlation of (regression) scores with factors   0.953
-## Multiple R square of scores with factors          0.908
-## Minimum correlation of possible factor scores     0.817</code></pre>
+<div id="scree-plot" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Scree Plot<a href="exploratory-factor-analysis.html#scree-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="exploratory-factor-analysis.html#cb6-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">scree</span>(cor, <span class="at">pc =</span> <span class="cn">TRUE</span>, <span class="at">factors =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+<div id="cumulative-percentages-of-variance" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Cumulative Percentages of Variance<a href="exploratory-factor-analysis.html#cumulative-percentages-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="exploratory-factor-analysis.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shares for the cumulative variance explained</span></span>
+<span id="cb7-2"><a href="exploratory-factor-analysis.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cumsum</span>(EV<span class="sc">/</span><span class="fu">length</span>(EV)), </span>
+<span id="cb7-3"><a href="exploratory-factor-analysis.html#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;o&quot;</span>, <span class="co"># type of plot: &quot;o&quot; for points and lines &#39;overplotted&#39;</span></span>
+<span id="cb7-4"><a href="exploratory-factor-analysis.html#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;darkblue&quot;</span>,</span>
+<span id="cb7-5"><a href="exploratory-factor-analysis.html#cb7-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">16</span>, <span class="co"># plot symbol: 16 = filled circle</span></span>
+<span id="cb7-6"><a href="exploratory-factor-analysis.html#cb7-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex =</span> <span class="dv">1</span>, <span class="co"># size of plot symbols</span></span>
+<span id="cb7-7"><a href="exploratory-factor-analysis.html#cb7-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Number of factors&quot;</span>, <span class="co"># a title for the x axis</span></span>
+<span id="cb7-8"><a href="exploratory-factor-analysis.html#cb7-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Cumulative variance explained&quot;</span>, <span class="co"># a title for the y axis</span></span>
+<span id="cb7-9"><a href="exploratory-factor-analysis.html#cb7-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">lwd =</span> <span class="dv">2</span>) <span class="co"># line width</span></span>
+<span id="cb7-10"><a href="exploratory-factor-analysis.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">5</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;grey&quot;</span>) <span class="co"># draw a vertical line at v = 3</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="select-number-of-factors-using-kaiser-rule" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Select Number of Factors using Kaiser Rule<a href="exploratory-factor-analysis.html#select-number-of-factors-using-kaiser-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="exploratory-factor-analysis.html#cb8-1" aria-hidden="true" tabindex="-1"></a>nFactor <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">which</span>(EV <span class="sc">&gt;</span> <span class="dv">1</span>)) </span>
+<span id="cb8-2"><a href="exploratory-factor-analysis.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(nFactor, <span class="st">&quot; factors with Eigenvalue &gt; 1&quot;</span> ))</span></code></pre></div>
+<pre><code>## [1] &quot;5 factors with Eigenvalue &gt; 1&quot;</code></pre>
+</div>
+</div>
+<div id="extract-principal-factors" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Extract Principal Factors<a href="exploratory-factor-analysis.html#extract-principal-factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="exploratory-factor-analysis.html#cb10-1" aria-hidden="true" tabindex="-1"></a>EFA <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">fa</span>(</span>
+<span id="cb10-2"><a href="exploratory-factor-analysis.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">r =</span> cor,</span>
+<span id="cb10-3"><a href="exploratory-factor-analysis.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># number of factors</span></span>
+<span id="cb10-4"><a href="exploratory-factor-analysis.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">nfactors =</span> nFactor,</span>
+<span id="cb10-5"><a href="exploratory-factor-analysis.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># principal factor</span></span>
+<span id="cb10-6"><a href="exploratory-factor-analysis.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fm =</span> <span class="st">&quot;pa&quot;</span>,</span>
+<span id="cb10-7"><a href="exploratory-factor-analysis.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># maximizes the sum of the variance of the squared loadings</span></span>
+<span id="cb10-8"><a href="exploratory-factor-analysis.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">rotate =</span> <span class="st">&quot;varimax&quot;</span></span>
+<span id="cb10-9"><a href="exploratory-factor-analysis.html#cb10-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div id="factor-loadings" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Factor Loadings<a href="exploratory-factor-analysis.html#factor-loadings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="exploratory-factor-analysis.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb11-2"><a href="exploratory-factor-analysis.html#cb11-2" aria-hidden="true" tabindex="-1"></a>columnOrder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;PA1&quot;</span>, <span class="st">&quot;PA2&quot;</span>, <span class="st">&quot;PA3&quot;</span>, <span class="st">&quot;PA4&quot;</span>,<span class="st">&quot;PA5&quot;</span>,<span class="st">&quot;Communality&quot;</span>,<span class="st">&quot;Uniqueness&quot;</span>)</span>
+<span id="cb11-3"><a href="exploratory-factor-analysis.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="exploratory-factor-analysis.html#cb11-4" aria-hidden="true" tabindex="-1"></a>EFA_loadings <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(EFA<span class="sc">$</span>loadings[,]</span>
+<span id="cb11-5"><a href="exploratory-factor-analysis.html#cb11-5" aria-hidden="true" tabindex="-1"></a>                           ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="exploratory-factor-analysis.html#cb11-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Uniqueness =</span> EFA<span class="sc">$</span>uniquenesses,</span>
+<span id="cb11-7"><a href="exploratory-factor-analysis.html#cb11-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">Communality =</span> EFA<span class="sc">$</span>communality) <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="exploratory-factor-analysis.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(., <span class="fu">across</span>(<span class="fu">where</span>(is.numeric), round, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="exploratory-factor-analysis.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(columnOrder) <span class="sc">%&gt;%</span></span>
+<span id="cb11-10"><a href="exploratory-factor-analysis.html#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(., <span class="sc">-</span>Communality)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="exploratory-factor-analysis.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a function to highlight cells value &gt; 0.5 or &lt; -0.5</span></span>
+<span id="cb12-2"><a href="exploratory-factor-analysis.html#cb12-2" aria-hidden="true" tabindex="-1"></a>colorCell <span class="ot">&lt;-</span> <span class="cf">function</span>(x, n, nmax){</span>
+<span id="cb12-3"><a href="exploratory-factor-analysis.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cell_spec</span>(x, <span class="at">background =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(<span class="fu">as.numeric</span>(x)), <span class="st">&quot;white&quot;</span>,</span>
+<span id="cb12-4"><a href="exploratory-factor-analysis.html#cb12-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="fu">ifelse</span>(n <span class="sc">==</span> nmax <span class="sc">|</span> n <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;white&quot;</span>,</span>
+<span id="cb12-5"><a href="exploratory-factor-analysis.html#cb12-5" aria-hidden="true" tabindex="-1"></a>                                          <span class="fu">ifelse</span>(<span class="fu">abs</span>(x) <span class="sc">&gt;=</span><span class="fl">0.5</span>, <span class="st">&quot;lightgreen&quot;</span>,</span>
+<span id="cb12-6"><a href="exploratory-factor-analysis.html#cb12-6" aria-hidden="true" tabindex="-1"></a>                                                 <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="fl">0.5</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;white&quot;</span>)))))</span>
+<span id="cb12-7"><a href="exploratory-factor-analysis.html#cb12-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-8"><a href="exploratory-factor-analysis.html#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="exploratory-factor-analysis.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># show table in rMarkdown</span></span>
+<span id="cb12-10"><a href="exploratory-factor-analysis.html#cb12-10" aria-hidden="true" tabindex="-1"></a>EFA_loading_table <span class="ot">=</span> EFA_loadings <span class="sc">%&gt;%</span> </span>
+<span id="cb12-11"><a href="exploratory-factor-analysis.html#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="fu">funs</span>(<span class="fu">colorCell</span>(., </span>
+<span id="cb12-12"><a href="exploratory-factor-analysis.html#cb12-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">n =</span> <span class="fu">row_number</span>(), </span>
+<span id="cb12-13"><a href="exploratory-factor-analysis.html#cb12-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">nmax =</span> <span class="fu">n</span>()))) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-14"><a href="exploratory-factor-analysis.html#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">escape =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-15"><a href="exploratory-factor-analysis.html#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>, <span class="at">full_width =</span> F, <span class="at">position =</span> <span class="st">&quot;center&quot;</span>) </span>
+<span id="cb12-16"><a href="exploratory-factor-analysis.html#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="exploratory-factor-analysis.html#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">paged_table</span>(EFA_loadings)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["PA1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["PA2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["PA3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["PA4"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["PA5"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Communality"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Uniqueness"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.13","2":"0.00","3":"0.95","4":"0.01","5":"-0.02","6":"0.93","7":"0.07","_rn_":"kidtrans","_row":"kidtrans"},{"1":"0.03","2":"0.04","3":"0.05","4":"0.89","5":"-0.02","6":"0.79","7":"0.21","_rn_":"safeimpt","_row":"safeimpt"},{"1":"0.10","2":"-0.08","3":"-0.08","4":"-0.85","5":"0.02","6":"0.74","7":"0.26","_rn_":"perfimpt","_row":"perfimpt"},{"1":"-0.21","2":"-0.03","3":"0.08","4":"-0.01","5":"-0.82","6":"0.73","7":"0.27","_rn_":"envrminr","_row":"envrminr"},{"1":"-0.77","2":"-0.14","3":"-0.19","4":"-0.08","5":"-0.28","6":"0.73","7":"0.27","_rn_":"carefmny","_row":"carefmny"},{"1":"0.20","2":"-0.03","3":"-0.05","4":"0.07","5":"0.82","6":"0.72","7":"0.28","_rn_":"shdcarpl","_row":"shdcarpl"},{"1":"0.12","2":"0.83","3":"-0.10","4":"0.01","5":"0.05","6":"0.71","7":"0.29","_rn_":"miniboxy","_row":"miniboxy"},{"1":"0.09","2":"0.80","3":"0.19","4":"0.00","5":"0.04","6":"0.69","7":"0.31","_rn_":"suvcmpct","_row":"suvcmpct"},{"1":"0.18","2":"0.02","3":"0.03","4":"0.81","5":"0.10","6":"0.69","7":"0.31","_rn_":"lk4whldr","_row":"lk4whldr"},{"1":"-0.08","2":"-0.10","3":"-0.82","4":"-0.05","5":"-0.01","6":"0.69","7":"0.31","_rn_":"nordtrps","_row":"nordtrps"},{"1":"0.66","2":"-0.03","3":"0.25","4":"0.03","5":"0.42","6":"0.68","7":"0.32","_rn_":"tkvacatn","_row":"tkvacatn"},{"1":"0.34","2":"-0.66","3":"0.15","4":"0.08","5":"0.29","6":"0.67","7":"0.33","_rn_":"homlrgst","_row":"homlrgst"},{"1":"0.71","2":"-0.18","3":"0.23","4":"0.07","5":"0.26","6":"0.66","7":"0.34","_rn_":"lthrbetr","_row":"lthrbetr"},{"1":"0.79","2":"0.17","3":"0.03","4":"0.10","5":"0.04","6":"0.66","7":"0.34","_rn_":"buyhghnd","_row":"buyhghnd"},{"1":"0.68","2":"-0.04","3":"0.29","4":"0.01","5":"0.34","6":"0.66","7":"0.34","_rn_":"accesfun","_row":"accesfun"},{"1":"0.16","2":"0.78","3":"0.01","4":"-0.01","5":"-0.08","6":"0.64","7":"0.36","_rn_":"noparkrm","_row":"noparkrm"},{"1":"0.20","2":"0.02","3":"0.76","4":"0.03","5":"0.05","6":"0.63","7":"0.37","_rn_":"kidsbulk","_row":"kidsbulk"},{"1":"-0.39","2":"0.03","3":"-0.01","4":"0.01","5":"-0.69","6":"0.63","7":"0.37","_rn_":"wntguzlr","_row":"wntguzlr"},{"1":"-0.65","2":"-0.02","3":"-0.37","4":"0.01","5":"-0.25","6":"0.62","7":"0.38","_rn_":"passnimp","_row":"passnimp"},{"1":"0.27","2":"-0.25","3":"0.09","4":"0.67","5":"0.06","6":"0.60","7":"0.40","_rn_":"strngwrn","_row":"strngwrn"},{"1":"0.20","2":"-0.11","3":"0.71","4":"0.18","5":"-0.10","6":"0.60","7":"0.40","_rn_":"aftrschl","_row":"aftrschl"},{"1":"0.60","2":"0.23","3":"0.17","4":"-0.02","5":"0.38","6":"0.59","7":"0.41","_rn_":"stylclth","_row":"stylclth"},{"1":"0.24","2":"-0.71","3":"0.10","4":"0.00","5":"-0.10","6":"0.58","7":"0.42","_rn_":"next2str","_row":"next2str"},{"1":"0.72","2":"-0.18","3":"-0.06","4":"0.01","5":"-0.11","6":"0.56","7":"0.44","_rn_":"pricqual","_row":"pricqual"},{"1":"0.66","2":"-0.02","3":"0.16","4":"0.07","5":"0.26","6":"0.54","7":"0.46","_rn_":"prmsound","_row":"prmsound"},{"1":"-0.06","2":"0.72","3":"0.05","4":"-0.07","5":"0.03","6":"0.53","7":"0.47","_rn_":"secbiggr","_row":"secbiggr"},{"1":"0.12","2":"0.71","3":"-0.01","4":"0.04","5":"0.04","6":"0.53","7":"0.47","_rn_":"needbetw","_row":"needbetw"},{"1":"0.52","2":"-0.01","3":"0.32","4":"0.18","5":"0.31","6":"0.49","7":"0.51","_rn_":"imprtapp","_row":"imprtapp"},{"1":"0.68","2":"0.11","3":"-0.06","4":"0.09","5":"-0.04","6":"0.49","7":"0.51","_rn_":"twoincom","_row":"twoincom"},{"1":"0.05","2":"0.65","3":"0.04","4":"0.03","5":"-0.03","6":"0.43","7":"0.57","_rn_":"nohummer","_row":"nohummer"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="factor-scores" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Factor Scores<a href="exploratory-factor-analysis.html#factor-scores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="exploratory-factor-analysis.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract rotated factor scores </span></span>
+<span id="cb13-2"><a href="exploratory-factor-analysis.html#cb13-2" aria-hidden="true" tabindex="-1"></a>EFA.scores <span class="ot">=</span> <span class="fu">factor.scores</span>(vars[,<span class="sc">-</span><span class="dv">1</span>], </span>
+<span id="cb13-3"><a href="exploratory-factor-analysis.html#cb13-3" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">unclass</span>(EFA<span class="sc">$</span>loadings))<span class="sc">$</span>scores</span></code></pre></div>
 
 </div>
 </div>
@@ -320,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="explorative-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="clustering.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regression-with-5-factors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

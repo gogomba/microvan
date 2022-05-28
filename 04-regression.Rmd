@@ -1,0 +1,29 @@
+# Regression with 5 Factors
+```{r}
+# data for regression 
+EFA_with_score <- cbind.data.frame(vars[,2], EFA.scores) %>%
+  dplyr::rename(., mvliking = "vars[, 2]" )
+
+
+EFA_model <- lm(mvliking ~ PA1 + PA2  +PA3+PA4 +PA5, 
+                data=EFA_with_score )
+
+summary(EFA_model)
+
+# merge with all previous data
+#EFA_merge_data <- cbind(microvan, EFA.scores)
+#head(EFA_merge_data)
+```
+
+# Regression with 3 Factors
+```{r}
+# data for regression 
+EFA_model2 <- lm(mvliking ~ PA1 + PA3  + PA5, 
+                data=EFA_with_score )
+
+summary(EFA_model2)
+
+# merge with all previous data
+#EFA_merge_data <- cbind(microvan, EFA.scores)
+#head(EFA_merge_data)
+```
