@@ -229,105 +229,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-9"><a href="explorative-data-analysis.html#cb2-9" aria-hidden="true" tabindex="-1"></a>description <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">describe</span>(microvan) <span class="sc">%&gt;%</span></span>
 <span id="cb2-10"><a href="explorative-data-analysis.html#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
 <span id="cb2-11"><a href="explorative-data-analysis.html#cb2-11" aria-hidden="true" tabindex="-1"></a>description </span></code></pre></div>
-<pre><code>##          vars   n     mean          sd median    trimmed      mad min max
-## subjnumb    1 400 200.5000 115.6143013  200.5 200.500000 148.2600   1 400
-## mvliking    2 400   4.8425   2.6899411    5.0   4.803125   2.9652   1   9
-## kidtrans    3 400   4.8250   1.5166164    5.0   4.800000   1.4826   1   9
-## miniboxy    4 400   4.6650   1.4775768    5.0   4.600000   1.4826   1   9
-## lthrbetr    5 400   4.2500   1.5176489    4.0   4.240625   1.4826   1   9
-## secbiggr    6 400   5.2275   1.5137610    5.0   5.256250   1.4826   1   9
-## safeimpt    7 400   4.9975   1.5126845    5.0   4.959375   1.4826   1   9
-## buyhghnd    8 400   5.2750   1.5444541    5.0   5.309375   1.4826   1   9
-## pricqual    9 400   4.9575   1.5170522    5.0   4.950000   1.4826   1   9
-## prmsound   10 400   4.7200   1.5057451    5.0   4.700000   1.4826   1   9
-## perfimpt   11 400   5.0000   1.4918324    5.0   4.971875   1.4826   1   9
-## tkvacatn   12 400   4.4400   1.5288045    5.0   4.446875   1.4826   1   9
-## noparkrm   13 400   4.5750   1.5182680    4.0   4.503125   1.4826   1   9
-## homlrgst   14 400   5.4925   1.5001900    5.0   5.462500   1.4826   1   9
-## envrminr   15 400   5.5325   1.5214239    6.0   5.562500   1.4826   1   9
-## needbetw   16 400   4.9400   1.5499697    5.0   4.912500   1.4826   1   9
-## suvcmpct   17 400   4.7825   1.5052769    5.0   4.731250   1.4826   1   9
-## next2str   18 400   4.4875   1.5510830    4.0   4.415625   1.4826   1   9
-## carefmny   19 400   5.2250   1.5281404    5.0   5.237500   1.4826   1   9
-## shdcarpl   20 400   5.1750   1.5033380    5.0   5.203125   1.4826   1   9
-## imprtapp   21 400   4.5600   1.5023457    5.0   4.568750   1.4826   1   9
-## lk4whldr   22 400   5.2350   1.4594863    5.0   5.268750   1.4826   1   9
-## kidsbulk   23 400   4.4775   1.4815469    4.0   4.415625   1.4826   1   9
-## wntguzlr   24 400   5.0600   1.5090039    5.0   5.062500   1.4826   1   9
-## nordtrps   25 400   5.3150   1.4920928    5.0   5.356250   1.4826   1   9
-## stylclth   26 400   5.3450   1.5270247    5.0   5.381250   1.4826   1   9
-## strngwrn   27 400   5.0425   1.5037776    5.0   5.059375   1.4826   1   9
-## passnimp   28 400   5.6150   1.5058033    6.0   5.628125   1.4826   1   9
-## twoincom   29 400   4.8725   1.5595912    5.0   4.868750   1.4826   1   9
-## nohummer   30 400   4.8525   1.5448982    5.0   4.815625   1.4826   1   9
-## aftrschl   31 400   4.3850   1.5058033    4.0   4.312500   1.4826   1   9
-## accesfun   32 400   4.6425   1.5249615    5.0   4.653125   1.4826   1   9
-## age        33 400  40.0550   8.5674078   40.0  40.068750   8.8956  19  60
-## income     34 400  71.2800  43.2847030   62.5  66.265625  42.2541  15 273
-## miles      35 400  18.0425   4.8646537   18.0  17.928125   4.4478   7  32
-## numkids    36 400   1.2200   1.0837603    1.0   1.100000   1.4826   0   4
-## female     37 400   0.5400   0.4990216    1.0   0.550000   0.0000   0   1
-## educ       38 400   2.8050   0.9322810    3.0   2.881250   1.4826   1   4
-## recycle    39 400   3.0400   1.1755231    3.0   3.050000   1.4826   1   5
-##          range         skew     kurtosis         se
-## subjnumb   399  0.000000000 -1.209003675 5.78071507
-## mvliking     8  0.070991538 -1.202171094 0.13449706
-## kidtrans     8  0.180571278 -0.158456134 0.07583082
-## miniboxy     8  0.316581730 -0.100709380 0.07387884
-## lthrbetr     8  0.234942431  0.067537630 0.07588244
-## secbiggr     8 -0.184301606 -0.128696869 0.07568805
-## safeimpt     8  0.164565659 -0.047682745 0.07563422
-## buyhghnd     8 -0.170676842 -0.127985738 0.07722270
-## pricqual     8  0.058794979 -0.123184347 0.07585261
-## prmsound     8  0.037111505 -0.139989856 0.07528725
-## perfimpt     8  0.117463923  0.088952931 0.07459162
-## tkvacatn     8  0.157385518 -0.063799691 0.07644022
-## noparkrm     8  0.335294305 -0.171380468 0.07591340
-## homlrgst     8 -0.032243548  0.152175325 0.07500950
-## envrminr     8 -0.244778001  0.085106198 0.07607119
-## needbetw     8  0.115898983 -0.204947009 0.07749848
-## suvcmpct     8  0.261692312 -0.029620771 0.07526384
-## next2str     8  0.413183503 -0.119575276 0.07755415
-## carefmny     8  0.022777215 -0.352621649 0.07640702
-## shdcarpl     8 -0.130653599  0.046481706 0.07516690
-## imprtapp     8  0.103817964 -0.004093811 0.07511729
-## lk4whldr     8 -0.174001280  0.299606429 0.07297431
-## kidsbulk     8  0.408115144  0.172577332 0.07407734
-## wntguzlr     8 -0.018645331 -0.062515593 0.07545019
-## nordtrps     8 -0.185100977  0.079287200 0.07460464
-## stylclth     8 -0.177898625 -0.148610361 0.07635124
-## strngwrn     8 -0.089743287  0.004665614 0.07518888
-## passnimp     8 -0.262301769  0.189333416 0.07529017
-## twoincom     8  0.005960541 -0.130403030 0.07797956
-## nohummer     8  0.173352096 -0.154622579 0.07724491
-## aftrschl     8  0.459998292  0.109684308 0.07529017
-## accesfun     8  0.012988794 -0.237750130 0.07624807
-## age         41 -0.033077693 -0.721748240 0.42837039
-## income     258  1.178434029  1.730907696 2.16423515
-## miles       25  0.196120887 -0.315794159 0.24323269
-## numkids      4  0.735395049 -0.090571440 0.05418801
-## female       1 -0.159912918 -1.979357518 0.02495108
-## educ         3 -0.420102346 -0.669849007 0.04661405
-## recycle      4 -0.040305292 -0.833363634 0.05877616</code></pre>
+<pre><code>##          vars   n   mean     sd median trimmed   mad min max range   skew
+## subjnumb    1 400 200.50 115.61    200  200.50 148.3   1 400   399  0.000
+## mvliking    2 400   4.84   2.69      5    4.80   3.0   1   9     8  0.071
+## kidtrans    3 400   4.83   1.52      5    4.80   1.5   1   9     8  0.181
+## miniboxy    4 400   4.67   1.48      5    4.60   1.5   1   9     8  0.317
+## lthrbetr    5 400   4.25   1.52      4    4.24   1.5   1   9     8  0.235
+## secbiggr    6 400   5.23   1.51      5    5.26   1.5   1   9     8 -0.184
+## safeimpt    7 400   5.00   1.51      5    4.96   1.5   1   9     8  0.165
+## buyhghnd    8 400   5.28   1.54      5    5.31   1.5   1   9     8 -0.171
+## pricqual    9 400   4.96   1.52      5    4.95   1.5   1   9     8  0.059
+## prmsound   10 400   4.72   1.51      5    4.70   1.5   1   9     8  0.037
+## perfimpt   11 400   5.00   1.49      5    4.97   1.5   1   9     8  0.117
+## tkvacatn   12 400   4.44   1.53      5    4.45   1.5   1   9     8  0.157
+## noparkrm   13 400   4.58   1.52      4    4.50   1.5   1   9     8  0.335
+## homlrgst   14 400   5.49   1.50      5    5.46   1.5   1   9     8 -0.032
+## envrminr   15 400   5.53   1.52      6    5.56   1.5   1   9     8 -0.245
+## needbetw   16 400   4.94   1.55      5    4.91   1.5   1   9     8  0.116
+## suvcmpct   17 400   4.78   1.51      5    4.73   1.5   1   9     8  0.262
+## next2str   18 400   4.49   1.55      4    4.42   1.5   1   9     8  0.413
+## carefmny   19 400   5.22   1.53      5    5.24   1.5   1   9     8  0.023
+## shdcarpl   20 400   5.17   1.50      5    5.20   1.5   1   9     8 -0.131
+## imprtapp   21 400   4.56   1.50      5    4.57   1.5   1   9     8  0.104
+## lk4whldr   22 400   5.24   1.46      5    5.27   1.5   1   9     8 -0.174
+## kidsbulk   23 400   4.48   1.48      4    4.42   1.5   1   9     8  0.408
+## wntguzlr   24 400   5.06   1.51      5    5.06   1.5   1   9     8 -0.019
+## nordtrps   25 400   5.32   1.49      5    5.36   1.5   1   9     8 -0.185
+## stylclth   26 400   5.34   1.53      5    5.38   1.5   1   9     8 -0.178
+## strngwrn   27 400   5.04   1.50      5    5.06   1.5   1   9     8 -0.090
+## passnimp   28 400   5.62   1.51      6    5.63   1.5   1   9     8 -0.262
+## twoincom   29 400   4.87   1.56      5    4.87   1.5   1   9     8  0.006
+## nohummer   30 400   4.85   1.54      5    4.82   1.5   1   9     8  0.173
+## aftrschl   31 400   4.38   1.51      4    4.31   1.5   1   9     8  0.460
+## accesfun   32 400   4.64   1.52      5    4.65   1.5   1   9     8  0.013
+## age        33 400  40.05   8.57     40   40.07   8.9  19  60    41 -0.033
+## income     34 400  71.28  43.28     62   66.27  42.3  15 273   258  1.178
+## miles      35 400  18.04   4.86     18   17.93   4.4   7  32    25  0.196
+## numkids    36 400   1.22   1.08      1    1.10   1.5   0   4     4  0.735
+## female     37 400   0.54   0.50      1    0.55   0.0   0   1     1 -0.160
+## educ       38 400   2.81   0.93      3    2.88   1.5   1   4     3 -0.420
+## recycle    39 400   3.04   1.18      3    3.05   1.5   1   5     4 -0.040
+##          kurtosis    se
+## subjnumb  -1.2090 5.781
+## mvliking  -1.2022 0.134
+## kidtrans  -0.1585 0.076
+## miniboxy  -0.1007 0.074
+## lthrbetr   0.0675 0.076
+## secbiggr  -0.1287 0.076
+## safeimpt  -0.0477 0.076
+## buyhghnd  -0.1280 0.077
+## pricqual  -0.1232 0.076
+## prmsound  -0.1400 0.075
+## perfimpt   0.0890 0.075
+## tkvacatn  -0.0638 0.076
+## noparkrm  -0.1714 0.076
+## homlrgst   0.1522 0.075
+## envrminr   0.0851 0.076
+## needbetw  -0.2049 0.077
+## suvcmpct  -0.0296 0.075
+## next2str  -0.1196 0.078
+## carefmny  -0.3526 0.076
+## shdcarpl   0.0465 0.075
+## imprtapp  -0.0041 0.075
+## lk4whldr   0.2996 0.073
+## kidsbulk   0.1726 0.074
+## wntguzlr  -0.0625 0.075
+## nordtrps   0.0793 0.075
+## stylclth  -0.1486 0.076
+## strngwrn   0.0047 0.075
+## passnimp   0.1893 0.075
+## twoincom  -0.1304 0.078
+## nohummer  -0.1546 0.077
+## aftrschl   0.1097 0.075
+## accesfun  -0.2378 0.076
+## age       -0.7217 0.428
+## income     1.7309 2.164
+## miles     -0.3158 0.243
+## numkids   -0.0906 0.054
+## female    -1.9794 0.025
+## educ      -0.6698 0.047
+## recycle   -0.8334 0.059</code></pre>
 <div id="histogram" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Histogram<a href="explorative-data-analysis.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="explorative-data-analysis.html#cb4-1" aria-hidden="true" tabindex="-1"></a>microvan_df <span class="ot">=</span> microvan[,<span class="dv">2</span><span class="sc">:</span><span class="dv">32</span>] <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="explorative-data-analysis.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>()</span>
-<span id="cb4-3"><a href="explorative-data-analysis.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="explorative-data-analysis.html#cb4-4" aria-hidden="true" tabindex="-1"></a>microvan_hist <span class="ot">=</span></span>
-<span id="cb4-5"><a href="explorative-data-analysis.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(microvan_df, <span class="fu">aes</span>(value)) <span class="sc">+</span></span>
-<span id="cb4-6"><a href="explorative-data-analysis.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> key, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>,<span class="at">ncol =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="explorative-data-analysis.html#cb4-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_histogram</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>)  <span class="sc">+</span> <span class="fu">theme_economist_white</span>() <span class="sc">+</span><span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb4-8"><a href="explorative-data-analysis.html#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="explorative-data-analysis.html#cb4-9" aria-hidden="true" tabindex="-1"></a>microvan_hist_path <span class="ot">=</span> <span class="fu">file.path</span>(plotDir, <span class="st">&quot;microvan_hist.png&quot;</span>)</span>
-<span id="cb4-10"><a href="explorative-data-analysis.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb4-11"><a href="explorative-data-analysis.html#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span>microvan_hist_path,</span>
-<span id="cb4-12"><a href="explorative-data-analysis.html#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> microvan_hist,</span>
-<span id="cb4-13"><a href="explorative-data-analysis.html#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">4000</span>,</span>
-<span id="cb4-14"><a href="explorative-data-analysis.html#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span><span class="dv">4000</span>,</span>
-<span id="cb4-15"><a href="explorative-data-analysis.html#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;px&quot;</span></span>
-<span id="cb4-16"><a href="explorative-data-analysis.html#cb4-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="plot/microvan_hist.png" width="100%" /></p>
 </div>
 <div id="correlation-analysis" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Correlation Analysis<a href="explorative-data-analysis.html#correlation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>

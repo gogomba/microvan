@@ -51,7 +51,7 @@ description
 ```
 
 ## Histogram
-```{r}
+```{r echo=FALSE, message=FALSE}
 
 microvan_df = microvan[,2:32] %>%
   gather()
@@ -69,6 +69,10 @@ ggsave(
   height =4000,
   units = "px"
 )
+```
+
+```{r echo=FALSE, fig.cap="", out.width = '100%'}
+knitr::include_graphics(microvan_hist_path)
 ```
 
 ## Correlation Analysis
