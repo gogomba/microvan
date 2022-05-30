@@ -47,9 +47,20 @@ microvan <- as.data.table(lapply(microvan, as.numeric))
 # data description
 description = psych::describe(microvan) %>%
   as.data.frame()
-description 
 
-
+# columns that need to be formatted
+numCols = c("mean",
+                    "sd",
+                    "median" ,
+                    "trimmed",
+                    "mad",
+                    "min",
+                    "max",
+                    "skew",
+                    "kurtosis",
+                    "se")
+DT::datatable(description )%>%
+  DT::formatRound(columns=numCols , digits=1)
 ```
 
 ## Histogram

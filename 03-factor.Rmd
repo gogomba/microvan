@@ -63,7 +63,6 @@ EFA <- psych::fa(
 
 ##  Factor Loadings
 ```{r}
-options(digits = 2)
 columnOrder <- c("PA1", "PA2", "PA3", "PA4","PA5","Communality","Uniqueness")
 
 EFA_loadings <- data.frame(EFA$loadings[,]
@@ -76,33 +75,13 @@ EFA_loadings <- data.frame(EFA$loadings[,]
 
 DT::datatable(EFA_loadings)
 ```
-```{r}
-# a function to highlight cells value > 0.5 or < -0.5
-colorCell <- function(x, n, nmax){
-  cell_spec(x, background = ifelse(is.na(as.numeric(x)), "white",
-                                   ifelse(n == nmax | n == 1, "white",
-                                          ifelse(abs(x) >=0.5, "lightgreen",
-                                                 ifelse(x < 0.5, "white", "white")))))
-}
-
-# show table in rMarkdown
-#EFA_loading_table = EFA_loadings %>% 
- # mutate_all(funs(colorCell(., 
-  #                    n = row_number(), 
-   #                   nmax = n()))) %>% 
-  #kable(escape = FALSE) %>% 
-  #kable_styling(bootstrap_options = "striped",
-   #             full_width = F, position = "center") 
-
-#paged_table(EFA_loadings)
-```
 
 ## Factor Scores
 ```{r}
 # extract rotated factor scores 
 EFA.scores = factor.scores(vars[,-1], 
                            unclass(EFA$loadings))$scores 
-options("digits" = 3)
+
 
 DT_cols  = c("PA1","PA2","PA3","PA4","PA5")
 EFA.scores %>%
