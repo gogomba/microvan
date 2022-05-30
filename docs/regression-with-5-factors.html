@@ -722,10 +722,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="regression-with-3-factors.html"><a href="regression-with-3-factors.html"><i class="fa fa-check"></i><b>5</b> Regression with 3 Factors</a></li>
 <li class="chapter" data-level="6" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>6</b> Clustering</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="clustering.html"><a href="clustering.html#interpretation-of-the-results"><i class="fa fa-check"></i><b>6.1</b> Interpretation of the results</a>
+<li class="chapter" data-level="6.1" data-path="clustering.html"><a href="clustering.html#dendrogram"><i class="fa fa-check"></i><b>6.1</b> Dendrogram</a></li>
+<li class="chapter" data-level="6.2" data-path="clustering.html"><a href="clustering.html#k-means"><i class="fa fa-check"></i><b>6.2</b> K-Means</a></li>
+<li class="chapter" data-level="6.3" data-path="clustering.html"><a href="clustering.html#interpretation-of-the-results"><i class="fa fa-check"></i><b>6.3</b> Interpretation of the results</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="clustering.html"><a href="clustering.html#histogram-1"><i class="fa fa-check"></i><b>6.1.1</b> Histogram</a></li>
-<li class="chapter" data-level="6.1.2" data-path="clustering.html"><a href="clustering.html#heatmap-table"><i class="fa fa-check"></i><b>6.1.2</b> Heatmap Table</a></li>
+<li class="chapter" data-level="6.3.1" data-path="clustering.html"><a href="clustering.html#histogram-1"><i class="fa fa-check"></i><b>6.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="6.3.2" data-path="clustering.html"><a href="clustering.html#heatmap-table"><i class="fa fa-check"></i><b>6.3.2</b> Heatmap Table</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="demographic.html"><a href="demographic.html"><i class="fa fa-check"></i><b>7</b> Demographic</a></li>
@@ -771,15 +773,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -0.7272 -0.0848 -0.0030  0.0900  0.9830 
 ## 
 ## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -1.05e-16   7.80e-03    0.00   1.0000    
-## PA1          1.22e-01   7.81e-03   15.64   &lt;2e-16 ***
-## PA2          2.29e-03   7.81e-03    0.29   0.7694    
-## PA3          9.80e-01   7.81e-03  125.54   &lt;2e-16 ***
-## PA4          3.03e-03   7.81e-03    0.39   0.6983    
-## PA5         -2.42e-02   7.81e-03   -3.10   0.0021 ** 
+##              Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept) -1.05e-16   7.80e-03    0.00   1.0000
+## PA1          1.22e-01   7.81e-03   15.64   &lt;2e-16
+## PA2          2.29e-03   7.81e-03    0.29   0.7694
+## PA3          9.80e-01   7.81e-03  125.54   &lt;2e-16
+## PA4          3.03e-03   7.81e-03    0.39   0.6983
+## PA5         -2.42e-02   7.81e-03   -3.10   0.0021
+##                
+## (Intercept)    
+## PA1         ***
+## PA2            
+## PA3         ***
+## PA4            
+## PA5         ** 
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 0.16 on 394 degrees of freedom
 ## Multiple R-squared:  0.976,  Adjusted R-squared:  0.976 

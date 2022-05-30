@@ -1,5 +1,6 @@
 # Clustering
 ***
+## Dendrogram
 ```{r}
 EFA_feature = EFA_with_score %>%
   dplyr::select(PA1, PA2,PA4)
@@ -16,6 +17,11 @@ plot(set(as.dendrogram(c),
      main = "Dendrogram",
      cex = 0.2)
 
+
+```
+
+## K-Means
+```{r}
 set.seed(42)
 EFA_kmeans <- kmeans(EFA_feature , centers = 3)
 EFA_kmeans
@@ -96,24 +102,24 @@ clusterCols = c("Cluster1", "Cluster2", "Cluster3")
 colfunc <- colorRampPalette(c("darkblue", "lightgrey"))
 
 # DT table 
-DT::datatable(bytopic, options = list(pageLength = 15)) %>%
+DT::datatable(df_wider, options = list(pageLength = 15)) %>%
   formatStyle("Cluster1",
-              backgroundColor = styleEqual(sort(unique(bytopic$Cluster1),
+              backgroundColor = styleEqual(sort(unique(df_wider$Cluster1),
                                                 decreasing = TRUE),
                                            colfunc(length(
-                                             unique(bytopic$Cluster1)
+                                             unique(df_wider$Cluster1)
                                            )))) %>%
   formatStyle("Cluster2",
-              backgroundColor = styleEqual(sort(unique(bytopic$Cluster2),
+              backgroundColor = styleEqual(sort(unique(df_wider$Cluster2),
                                                 decreasing = TRUE),
                                            colfunc(length(
-                                             unique(bytopic$Cluster2)
+                                             unique(df_wider$Cluster2)
                                            )))) %>%
   formatStyle("Cluster3",
-              backgroundColor = styleEqual(sort(unique(bytopic$Cluster3),
+              backgroundColor = styleEqual(sort(unique(df_wider$Cluster3),
                                                 decreasing = TRUE),
                                            colfunc(length(
-                                             unique(bytopic$Cluster3)
+                                             unique(df_wider$Cluster3)
                                            )))) %>%
   formatStyle(clusterCols, color = "white")
 ```
