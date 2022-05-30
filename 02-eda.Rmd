@@ -12,6 +12,7 @@ library(data.table)
 # plot
 library(ggplot2)
 library(corrplot)
+library(ggthemes)
 
 # rMarkdown 
 library(rmarkdown)
@@ -42,17 +43,41 @@ microvan = read.csv(dataPath, sep=";")
 microvan <- as.data.table(lapply(microvan, as.numeric))
 
 # data description
-description = psych::describe(microvan)
+description = psych::describe(microvan) %>%
+  as.data.frame()
 description 
 
-# scale data
-vars <- scale(microvan[,2:32])
+
 ```
 
+## Histogram
+```{r}
+
+microvan_df = microvan[,2:32] %>%
+  gather()
+
+microvan_hist =
+  ggplot(microvan_df, aes(value)) +
+  facet_wrap(~ key, scales = "free",ncol = 6) +
+   geom_histogram(alpha = 0.5, position = "identity")  + theme_economist_white() +theme(axis.title.x = element_blank())
+
+microvan_hist_path = file.path(plotDir, "microvan_hist.png")
+ggsave(
+  filename =microvan_hist_path,
+  plot = microvan_hist,
+  width = 4000,
+  height =4000,
+  units = "px"
+)
+```
 
 ## Correlation Analysis
 ### Pair-wise Scatter Plot
 ```{r,echo=FALSE,message=FALSE}
+# scale data
+vars <- scale(microvan[,2:32])
+
+
 # plot name
 scatterPlot = file.path(plotDir, "scatter_plot.png")
 

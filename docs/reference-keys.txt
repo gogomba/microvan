@@ -1,5 +1,6 @@
 executive-summary
 explorative-data-analysis
+histogram
 correlation-analysis
 pair-wise-scatter-plot
 correlation-matrix
@@ -14,4 +15,7 @@ factor-scores
 regression-with-5-factors
 regression-with-3-factors
 clustering
-discussion
+interpretation-of-the-results
+histogram-1
+heatmap
+demographic

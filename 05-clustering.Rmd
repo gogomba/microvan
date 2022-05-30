@@ -26,3 +26,69 @@ fviz_cluster(EFA_kmeans,
   theme_bw()
 
 ```
+
+## Interpretation of the results
+### Histogram
+```{r,echo=FALSE,message=FALSE}
+
+vars_cluster <- cbind(vars, cluster= EFA_kmeans$cluster) %>%
+  as.data.frame()
+
+df = vars_cluster %>%
+  gather(variable, value, -cluster)  %>%
+  as.data.frame()
+
+# factorize cluster 
+df$cluster <- factor(df$cluster)
+
+# plot
+vars_cluster_hist = ggplot(df, aes(value, 
+                     fill = cluster, 
+                     color = cluster)) +
+  geom_histogram(alpha = 0.5, position = "identity")  +
+  facet_wrap( ~ variable, scales = "free",ncol = 6)  +
+  theme_economist_white() 
+
+vars_cluster_hist_path = file.path(plotDir, "vars_cluster_hist.png")
+
+ggsave(
+  filename = vars_cluster_hist_path,
+  plot = vars_cluster_hist,
+  width = 3000,
+  height = 3000,
+  units = "px"
+)
+```
+```{r echo=FALSE, fig.cap="", out.width = '100%'}
+knitr::include_graphics(vars_cluster_hist_path)
+```
+
+
+### Heatmap 
+```{r}
+# Average for each cluster with one step
+
+
+vars_cluster_agg = aggregate(vars_cluster[, 2:31],
+          by = list(cluster = EFA_kmeans$cluster), 
+          FUN = mean)
+
+df <- vars_cluster_agg %>% 
+  gather(variable, value, -cluster) %>% # to transfrom from wide to long format
+  mutate(variable = fct_rev(factor(variable))) 
+
+df %>% # to reverse the order of car makes' names on the plot
+  ggplot(aes(x = factor(cluster), y = variable)) +
+  geom_tile(aes(fill = round(value, digits = 2))) +
+  geom_text(aes(label = round(value, digits = 2)), color="white") +
+  scale_x_discrete(expand = c(0,0)) +
+  scale_y_discrete(expand = c(0,0)) +
+  scale_fill_gradient("Average\n value", low = "lightgrey", high = "darkblue") +
+  theme_minimal() +
+  labs(title = "Average preferences in each cluster",
+       x = "Cluster",
+       y = " ") + 
+  theme(legend.position="right", 
+        plot.title = element_text(size = 10, face = "bold", hjust = 0.5),
+        axis.ticks = element_blank()) 
+```
