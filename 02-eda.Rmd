@@ -23,7 +23,11 @@ numCols = c("mean",
                     "skew",
                     "kurtosis",
                     "se")
-DT::datatable(description )%>%
+DT::datatable(description,
+              
+              options = list(pageLength = 10,
+                             scrollX = TRUE,
+                             scrollY = TRUE) )%>%
   DT::formatRound(columns=numCols , digits=1)
 ```
 
