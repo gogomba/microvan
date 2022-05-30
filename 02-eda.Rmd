@@ -1,41 +1,5 @@
 # Explorative Data Analysis
 ***
-```{r, message=FALSE, warning=FALSE}
-# multivariate analysis and basic descriptive statistics
-library(psych)  
-
-# data processing
-library(dplyr)
-library(tidyverse)
-library(data.table)
-library(DT)
-
-
-# plot
-library(ggplot2)
-library(corrplot)
-library(ggthemes)
-
-# rMarkdown 
-library(rmarkdown)
-library(kableExtra)
-
-# file path management 
-library(here)
-
-# stat
-library(factoextra)
-```
-
-```{r, include=FALSE}
-# set working directory 
-# file path
-mainDir = here::here("~/Documents/github/MBA/Application/ESMT/Course/Module2/Customer_Analytics/CA6/GroupCapstone/Microvan")
-dataDir = file.path(mainDir,"data")
-plotDir = file.path(mainDir,"plot")
-reportDir = file.path(mainDir, "report")
-```
-
 ```{r}
 # data 
 dataPath = file.path(dataDir, "microvan.csv")
