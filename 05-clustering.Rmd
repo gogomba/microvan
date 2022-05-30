@@ -1,5 +1,5 @@
 # Clustering
-
+***
 ```{r}
 EFA_feature = EFA_with_score %>%
   dplyr::select(PA1, PA2,PA4)
@@ -64,7 +64,7 @@ knitr::include_graphics(vars_cluster_hist_path)
 ```
 
 
-### Heatmap 
+
 ```{r}
 # Average for each cluster with one step
 
@@ -72,12 +72,55 @@ knitr::include_graphics(vars_cluster_hist_path)
 vars_cluster_agg = aggregate(vars_cluster[, 2:31],
           by = list(cluster = EFA_kmeans$cluster), 
           FUN = mean)
-
+# reshape
 df <- vars_cluster_agg %>% 
-  gather(variable, value, -cluster) %>% # to transfrom from wide to long format
-  mutate(variable = fct_rev(factor(variable))) 
+  gather(variable, value, -cluster)  # to transfrom from wide to long format
+ 
+```
 
+### Heatmap Table
+```{r}
+library(gt)
+library(scales)
+
+# reshpae, long to wide (cluster )
+df_wider = df%>%
+  dplyr::mutate(cluster = paste0("Cluster", cluster)) %>%
+  dplyr::mutate(., across(where(is.numeric), round, 2)) %>%
+  spread(., key=cluster, value =value)
+
+# cluster columns
+clusterCols = c("Cluster1", "Cluster2", "Cluster3")
+
+# color
+colfunc <- colorRampPalette(c("darkblue", "lightgrey"))
+
+# DT table 
+DT::datatable(bytopic, options = list(pageLength = 15)) %>%
+  formatStyle("Cluster1",
+              backgroundColor = styleEqual(sort(unique(bytopic$Cluster1),
+                                                decreasing = TRUE),
+                                           colfunc(length(
+                                             unique(bytopic$Cluster1)
+                                           )))) %>%
+  formatStyle("Cluster2",
+              backgroundColor = styleEqual(sort(unique(bytopic$Cluster2),
+                                                decreasing = TRUE),
+                                           colfunc(length(
+                                             unique(bytopic$Cluster2)
+                                           )))) %>%
+  formatStyle("Cluster3",
+              backgroundColor = styleEqual(sort(unique(bytopic$Cluster3),
+                                                decreasing = TRUE),
+                                           colfunc(length(
+                                             unique(bytopic$Cluster3)
+                                           )))) %>%
+  formatStyle(clusterCols, color = "white")
+```
+
+```{r include=F }
 df %>% # to reverse the order of car makes' names on the plot
+  mutate(variable = fct_rev(factor(variable)))  %>%
   ggplot(aes(x = factor(cluster), y = variable)) +
   geom_tile(aes(fill = round(value, digits = 2))) +
   geom_text(aes(label = round(value, digits = 2)), color="white") +
@@ -91,4 +134,20 @@ df %>% # to reverse the order of car makes' names on the plot
   theme(legend.position="right", 
         plot.title = element_text(size = 10, face = "bold", hjust = 0.5),
         axis.ticks = element_blank()) 
+
+
+# show DT table in rMD
+DT::datatable(df_wider )%>%
+  formatStyle(clusterCols,
+   background = styleColorBar(range(df_wider[clusterCols] ),color = styleInterval(cuts = 0, values = c("red","blue"))),
+                                
+  backgroundSize = '98% 88%',
+  backgroundRepeat = 'no-repeat',
+  backgroundPosition = 'center')
+
+# show heatmap table
+DT::datatable(df_wider )%>%
+  formatStyle(clusterCols, 
+               background =  styleInterval(0, c("lightgrey","darkblue")),
+              color = "white")
 ```

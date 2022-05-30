@@ -725,7 +725,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="clustering.html"><a href="clustering.html#interpretation-of-the-results"><i class="fa fa-check"></i><b>6.1</b> Interpretation of the results</a>
 <ul>
 <li class="chapter" data-level="6.1.1" data-path="clustering.html"><a href="clustering.html#histogram-1"><i class="fa fa-check"></i><b>6.1.1</b> Histogram</a></li>
-<li class="chapter" data-level="6.1.2" data-path="clustering.html"><a href="clustering.html#heatmap"><i class="fa fa-check"></i><b>6.1.2</b> Heatmap</a></li>
+<li class="chapter" data-level="6.1.2" data-path="clustering.html"><a href="clustering.html#heatmap-table"><i class="fa fa-check"></i><b>6.1.2</b> Heatmap Table</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="demographic.html"><a href="demographic.html"><i class="fa fa-check"></i><b>7</b> Demographic</a></li>
@@ -752,6 +752,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="clustering" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter6</span> Clustering<a href="clustering.html#clustering" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<hr />
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="clustering.html#cb17-1" aria-hidden="true" tabindex="-1"></a>EFA_feature <span class="ot">=</span> EFA_with_score <span class="sc">%&gt;%</span></span>
 <span id="cb17-2"><a href="clustering.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(PA1, PA2,PA4)</span>
 <span id="cb17-3"><a href="clustering.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -773,35 +774,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## K-means clustering with 3 clusters of sizes 118, 157, 125
 ## 
 ## Cluster means:
-##          PA1         PA2         PA4
-## 1  0.6951101 -1.13310118  0.01250923
-## 2 -1.0108796 -0.03774508 -0.06434312
-## 3  0.6134809  1.11705533  0.06900625
+##     PA1    PA2    PA4
+## 1  0.70 -1.133  0.013
+## 2 -1.01 -0.038 -0.064
+## 3  0.61  1.117  0.069
 ## 
 ## Clustering vector:
-##   [1] 2 3 1 3 1 1 3 2 1 2 2 1 2 1 3 3 3 3 2 2 2 2 3 2 2 1 2 3 2 1 2 1
-##  [33] 2 1 1 1 1 3 1 1 3 2 2 2 2 3 2 1 1 2 1 1 2 1 2 2 3 1 3 2 1 2 2 2
-##  [65] 3 2 2 3 3 1 3 2 2 1 1 2 2 1 2 3 1 2 2 2 1 2 2 1 2 2 1 3 2 3 1 1
-##  [97] 1 2 2 2 2 1 2 2 2 3 2 3 1 1 3 3 2 3 2 3 3 2 2 2 1 2 3 1 3 2 2 2
-## [129] 3 2 1 1 1 3 3 1 1 1 3 3 3 1 2 2 3 2 3 3 2 2 1 2 3 3 1 2 3 2 1 3
-## [161] 3 1 3 2 2 2 1 1 2 1 3 2 2 3 1 3 1 3 3 1 2 2 3 1 3 2 1 2 2 1 3 1
-## [193] 2 2 3 2 2 3 3 2 3 2 1 2 1 1 2 1 2 3 1 3 2 1 1 2 1 3 2 1 3 2 1 2
-## [225] 1 2 3 2 3 2 2 1 1 1 1 1 1 3 2 3 2 3 3 2 1 2 3 1 2 2 1 2 3 3 3 2
-## [257] 1 2 2 3 1 1 1 3 1 3 2 2 3 2 1 2 1 2 3 1 3 2 2 3 1 3 3 3 1 2 2 1
-## [289] 3 3 3 2 2 3 3 2 1 3 3 1 3 2 1 3 2 1 3 3 1 2 2 2 2 3 2 3 2 3 3 1
-## [321] 2 3 2 3 2 3 2 2 2 3 3 2 1 3 3 2 2 2 3 2 1 1 1 1 1 3 2 3 1 2 3 2
-## [353] 1 2 1 3 3 3 1 3 3 3 2 3 2 2 2 3 3 2 1 1 3 3 3 1 3 2 1 1 3 1 1 3
-## [385] 2 2 1 2 1 2 1 2 3 1 1 2 2 3 3 2
+##   [1] 2 3 1 3 1 1 3 2 1 2 2 1 2 1 3 3 3 3 2 2 2 2 3 2 2 1 2 3 2 1 2 1 2 1 1 1 1 3 1 1 3 2 2 2 2 3 2 1 1 2 1 1 2
+##  [54] 1 2 2 3 1 3 2 1 2 2 2 3 2 2 3 3 1 3 2 2 1 1 2 2 1 2 3 1 2 2 2 1 2 2 1 2 2 1 3 2 3 1 1 1 2 2 2 2 1 2 2 2 3
+## [107] 2 3 1 1 3 3 2 3 2 3 3 2 2 2 1 2 3 1 3 2 2 2 3 2 1 1 1 3 3 1 1 1 3 3 3 1 2 2 3 2 3 3 2 2 1 2 3 3 1 2 3 2 1
+## [160] 3 3 1 3 2 2 2 1 1 2 1 3 2 2 3 1 3 1 3 3 1 2 2 3 1 3 2 1 2 2 1 3 1 2 2 3 2 2 3 3 2 3 2 1 2 1 1 2 1 2 3 1 3
+## [213] 2 1 1 2 1 3 2 1 3 2 1 2 1 2 3 2 3 2 2 1 1 1 1 1 1 3 2 3 2 3 3 2 1 2 3 1 2 2 1 2 3 3 3 2 1 2 2 3 1 1 1 3 1
+## [266] 3 2 2 3 2 1 2 1 2 3 1 3 2 2 3 1 3 3 3 1 2 2 1 3 3 3 2 2 3 3 2 1 3 3 1 3 2 1 3 2 1 3 3 1 2 2 2 2 3 2 3 2 3
+## [319] 3 1 2 3 2 3 2 3 2 2 2 3 3 2 1 3 3 2 2 2 3 2 1 1 1 1 1 3 2 3 1 2 3 2 1 2 1 3 3 3 1 3 3 3 2 3 2 2 2 3 3 2 1
+## [372] 1 3 3 3 1 3 2 1 1 3 1 1 3 2 2 1 2 1 2 1 2 3 1 1 2 2 3 3 2
 ## 
 ## Within cluster sum of squares by cluster:
-## [1] 161.8675 255.1158 206.5558
+## [1] 162 255 207
 ##  (between_SS / total_SS =  47.9 %)
 ## 
 ## Available components:
 ## 
-## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;    
-## [5] &quot;tot.withinss&quot; &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;        
-## [9] &quot;ifault&quot;</code></pre>
+## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot; &quot;betweenss&quot;    &quot;size&quot;        
+## [8] &quot;iter&quot;         &quot;ifault&quot;</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="clustering.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># factor plot </span></span>
 <span id="cb20-2"><a href="clustering.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(EFA_kmeans, </span>
 <span id="cb20-3"><a href="clustering.html#cb20-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> EFA_feature) <span class="sc">+</span> </span>
@@ -812,35 +807,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="histogram-1" class="section level3 hasAnchor" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Histogram<a href="clustering.html#histogram-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="plot/vars_cluster_hist.png" width="100%" /></p>
-</div>
-<div id="heatmap" class="section level3 hasAnchor" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Heatmap<a href="clustering.html#heatmap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="clustering.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Average for each cluster with one step</span></span>
 <span id="cb21-2"><a href="clustering.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="clustering.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-4"><a href="clustering.html#cb21-4" aria-hidden="true" tabindex="-1"></a>vars_cluster_agg <span class="ot">=</span> <span class="fu">aggregate</span>(vars_cluster[, <span class="dv">2</span><span class="sc">:</span><span class="dv">31</span>],</span>
 <span id="cb21-5"><a href="clustering.html#cb21-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">cluster =</span> EFA_kmeans<span class="sc">$</span>cluster), </span>
 <span id="cb21-6"><a href="clustering.html#cb21-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> mean)</span>
-<span id="cb21-7"><a href="clustering.html#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="clustering.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape</span></span>
 <span id="cb21-8"><a href="clustering.html#cb21-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> vars_cluster_agg <span class="sc">%&gt;%</span> </span>
-<span id="cb21-9"><a href="clustering.html#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(variable, value, <span class="sc">-</span>cluster) <span class="sc">%&gt;%</span> <span class="co"># to transfrom from wide to long format</span></span>
-<span id="cb21-10"><a href="clustering.html#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="fu">fct_rev</span>(<span class="fu">factor</span>(variable))) </span>
-<span id="cb21-11"><a href="clustering.html#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="clustering.html#cb21-12" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="co"># to reverse the order of car makes&#39; names on the plot</span></span>
-<span id="cb21-13"><a href="clustering.html#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cluster), <span class="at">y =</span> variable)) <span class="sc">+</span></span>
-<span id="cb21-14"><a href="clustering.html#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">round</span>(value, <span class="at">digits =</span> <span class="dv">2</span>))) <span class="sc">+</span></span>
-<span id="cb21-15"><a href="clustering.html#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(value, <span class="at">digits =</span> <span class="dv">2</span>)), <span class="at">color=</span><span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb21-16"><a href="clustering.html#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb21-17"><a href="clustering.html#cb21-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb21-18"><a href="clustering.html#cb21-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="st">&quot;Average</span><span class="sc">\n</span><span class="st"> value&quot;</span>, <span class="at">low =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">high =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb21-19"><a href="clustering.html#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb21-20"><a href="clustering.html#cb21-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Average preferences in each cluster&quot;</span>,</span>
-<span id="cb21-21"><a href="clustering.html#cb21-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Cluster&quot;</span>,</span>
-<span id="cb21-22"><a href="clustering.html#cb21-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot; &quot;</span>) <span class="sc">+</span> </span>
-<span id="cb21-23"><a href="clustering.html#cb21-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;right&quot;</span>, </span>
-<span id="cb21-24"><a href="clustering.html#cb21-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb21-25"><a href="clustering.html#cb21-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>()) </span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<span id="cb21-9"><a href="clustering.html#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(variable, value, <span class="sc">-</span>cluster)  <span class="co"># to transfrom from wide to long format</span></span></code></pre></div>
+</div>
+<div id="heatmap-table" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Heatmap Table<a href="clustering.html#heatmap-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="clustering.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb22-2"><a href="clustering.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb22-3"><a href="clustering.html#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="clustering.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># reshpae, long to wide (cluster )</span></span>
+<span id="cb22-5"><a href="clustering.html#cb22-5" aria-hidden="true" tabindex="-1"></a>df_wider <span class="ot">=</span> df<span class="sc">%&gt;%</span></span>
+<span id="cb22-6"><a href="clustering.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">cluster =</span> <span class="fu">paste0</span>(<span class="st">&quot;Cluster&quot;</span>, cluster)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-7"><a href="clustering.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(., <span class="fu">across</span>(<span class="fu">where</span>(is.numeric), round, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-8"><a href="clustering.html#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(., <span class="at">key=</span>cluster, <span class="at">value =</span>value)</span>
+<span id="cb22-9"><a href="clustering.html#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="clustering.html#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># cluster columns</span></span>
+<span id="cb22-11"><a href="clustering.html#cb22-11" aria-hidden="true" tabindex="-1"></a>clusterCols <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Cluster1&quot;</span>, <span class="st">&quot;Cluster2&quot;</span>, <span class="st">&quot;Cluster3&quot;</span>)</span>
+<span id="cb22-12"><a href="clustering.html#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="clustering.html#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co"># color</span></span>
+<span id="cb22-14"><a href="clustering.html#cb22-14" aria-hidden="true" tabindex="-1"></a>colfunc <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;darkblue&quot;</span>, <span class="st">&quot;lightgrey&quot;</span>))</span>
+<span id="cb22-15"><a href="clustering.html#cb22-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-16"><a href="clustering.html#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co"># DT table </span></span>
+<span id="cb22-17"><a href="clustering.html#cb22-17" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(bytopic, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">15</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-18"><a href="clustering.html#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">formatStyle</span>(<span class="st">&quot;Cluster1&quot;</span>,</span>
+<span id="cb22-19"><a href="clustering.html#cb22-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">backgroundColor =</span> <span class="fu">styleEqual</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(bytopic<span class="sc">$</span>Cluster1),</span>
+<span id="cb22-20"><a href="clustering.html#cb22-20" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-21"><a href="clustering.html#cb22-21" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">colfunc</span>(<span class="fu">length</span>(</span>
+<span id="cb22-22"><a href="clustering.html#cb22-22" aria-hidden="true" tabindex="-1"></a>                                             <span class="fu">unique</span>(bytopic<span class="sc">$</span>Cluster1)</span>
+<span id="cb22-23"><a href="clustering.html#cb22-23" aria-hidden="true" tabindex="-1"></a>                                           )))) <span class="sc">%&gt;%</span></span>
+<span id="cb22-24"><a href="clustering.html#cb22-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">formatStyle</span>(<span class="st">&quot;Cluster2&quot;</span>,</span>
+<span id="cb22-25"><a href="clustering.html#cb22-25" aria-hidden="true" tabindex="-1"></a>              <span class="at">backgroundColor =</span> <span class="fu">styleEqual</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(bytopic<span class="sc">$</span>Cluster2),</span>
+<span id="cb22-26"><a href="clustering.html#cb22-26" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-27"><a href="clustering.html#cb22-27" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">colfunc</span>(<span class="fu">length</span>(</span>
+<span id="cb22-28"><a href="clustering.html#cb22-28" aria-hidden="true" tabindex="-1"></a>                                             <span class="fu">unique</span>(bytopic<span class="sc">$</span>Cluster2)</span>
+<span id="cb22-29"><a href="clustering.html#cb22-29" aria-hidden="true" tabindex="-1"></a>                                           )))) <span class="sc">%&gt;%</span></span>
+<span id="cb22-30"><a href="clustering.html#cb22-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">formatStyle</span>(<span class="st">&quot;Cluster3&quot;</span>,</span>
+<span id="cb22-31"><a href="clustering.html#cb22-31" aria-hidden="true" tabindex="-1"></a>              <span class="at">backgroundColor =</span> <span class="fu">styleEqual</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(bytopic<span class="sc">$</span>Cluster3),</span>
+<span id="cb22-32"><a href="clustering.html#cb22-32" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-33"><a href="clustering.html#cb22-33" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">colfunc</span>(<span class="fu">length</span>(</span>
+<span id="cb22-34"><a href="clustering.html#cb22-34" aria-hidden="true" tabindex="-1"></a>                                             <span class="fu">unique</span>(bytopic<span class="sc">$</span>Cluster3)</span>
+<span id="cb22-35"><a href="clustering.html#cb22-35" aria-hidden="true" tabindex="-1"></a>                                           )))) <span class="sc">%&gt;%</span></span>
+<span id="cb22-36"><a href="clustering.html#cb22-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">formatStyle</span>(clusterCols, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-42ba34a57c3a44a9bd93" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-42ba34a57c3a44a9bd93">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],["accesfun","aftrschl","buyhghnd","carefmny","envrminr","homlrgst","imprtapp","kidsbulk","kidtrans","lk4whldr","lthrbetr","miniboxy","needbetw","next2str","nohummer","noparkrm","nordtrps","passnimp","perfimpt","pricqual","prmsound","safeimpt","secbiggr","shdcarpl","strngwrn","stylclth","suvcmpct","tkvacatn","twoincom","wntguzlr"],[0.6,0.3,0.34,-0.46,-0.24,1.08,0.51,0.18,0.14,0.11,0.82,-0.89,-0.73,1,-0.75,-0.84,-0.02,-0.52,0.15,0.68,0.56,-0.01,-0.91,0.32,0.5,0.3,-0.85,0.63,0.36,-0.49],[-0.83,-0.31,-0.83,0.93,0.41,-0.42,-0.71,-0.34,-0.3,-0.25,-0.87,-0.14,-0.17,-0.18,-0.08,-0.16,0.26,0.8,-0.04,-0.71,-0.81,-0.1,0.06,-0.4,-0.35,-0.77,-0.18,-0.86,-0.71,0.58],[0.48,0.12,0.72,-0.73,-0.28,-0.49,0.42,0.26,0.24,0.21,0.31,1.02,0.9,-0.71,0.81,0.99,-0.31,-0.51,-0.09,0.25,0.49,0.13,0.79,0.21,-0.03,0.69,1.02,0.48,0.55,-0.26]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>Cluster1<\/th>\n      <th>Cluster2<\/th>\n      <th>Cluster3<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":15,"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background-color':value == 1.08 ? \"#00008B\" : value == 1 ? \"#07078D\" : value == 0.82 ? \"#0F0F90\" : value == 0.68 ? \"#161692\" : value == 0.63 ? \"#1E1E95\" : value == 0.6 ? \"#252597\" : value == 0.56 ? \"#2D2D9A\" : value == 0.51 ? \"#34349C\" : value == 0.5 ? \"#3C3C9F\" : value == 0.36 ? \"#4343A2\" : value == 0.34 ? \"#4B4BA4\" : value == 0.32 ? \"#5252A7\" : value == 0.3 ? \"#5A5AA9\" : value == 0.18 ? \"#6161AC\" : value == 0.15 ? \"#6969AF\" : value == 0.14 ? \"#7171B1\" : value == 0.11 ? \"#7878B4\" : value == -0.01 ? \"#8080B6\" : value == -0.02 ? \"#8787B9\" : value == -0.24 ? \"#8F8FBB\" : value == -0.46 ? \"#9696BE\" : value == -0.49 ? \"#9E9EC1\" : value == -0.52 ? \"#A5A5C3\" : value == -0.73 ? \"#ADADC6\" : value == -0.75 ? \"#B4B4C8\" : value == -0.84 ? \"#BCBCCB\" : value == -0.85 ? \"#C3C3CD\" : value == -0.89 ? \"#CBCBD0\" : value == -0.91 ? \"#D3D3D3\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':value == 0.93 ? \"#00008B\" : value == 0.8 ? \"#08088D\" : value == 0.58 ? \"#101090\" : value == 0.41 ? \"#191993\" : value == 0.26 ? \"#212196\" : value == 0.06 ? \"#2A2A99\" : value == -0.04 ? \"#32329C\" : value == -0.08 ? \"#3B3B9F\" : value == -0.1 ? \"#4343A2\" : value == -0.14 ? \"#4B4BA4\" : value == -0.16 ? \"#5454A7\" : value == -0.17 ? \"#5C5CAA\" : value == -0.18 ? \"#6565AD\" : value == -0.25 ? \"#6D6DB0\" : value == -0.3 ? \"#7676B3\" : value == -0.31 ? \"#7E7EB6\" : value == -0.34 ? \"#8787B9\" : value == -0.35 ? \"#8F8FBB\" : value == -0.4 ? \"#9797BE\" : value == -0.42 ? \"#A0A0C1\" : value == -0.71 ? \"#A8A8C4\" : value == -0.77 ? \"#B1B1C7\" : value == -0.81 ? \"#B9B9CA\" : value == -0.83 ? \"#C2C2CD\" : value == -0.86 ? \"#CACAD0\" : value == -0.87 ? \"#D3D3D3\" : null});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':value == 1.02 ? \"#00008B\" : value == 0.99 ? \"#08088D\" : value == 0.9 ? \"#101090\" : value == 0.81 ? \"#181893\" : value == 0.79 ? \"#202096\" : value == 0.72 ? \"#282898\" : value == 0.69 ? \"#30309B\" : value == 0.55 ? \"#38389E\" : value == 0.49 ? \"#4040A1\" : value == 0.48 ? \"#4949A3\" : value == 0.42 ? \"#5151A6\" : value == 0.31 ? \"#5959A9\" : value == 0.26 ? \"#6161AC\" : value == 0.25 ? \"#6969AF\" : value == 0.24 ? \"#7171B1\" : value == 0.21 ? \"#7979B4\" : value == 0.13 ? \"#8181B7\" : value == 0.12 ? \"#8989BA\" : value == -0.03 ? \"#9292BC\" : value == -0.09 ? \"#9A9ABF\" : value == -0.26 ? \"#A2A2C2\" : value == -0.28 ? \"#AAAAC5\" : value == -0.31 ? \"#B2B2C7\" : value == -0.49 ? \"#BABACA\" : value == -0.51 ? \"#C2C2CD\" : value == -0.71 ? \"#CACAD0\" : value == -0.73 ? \"#D3D3D3\" : null});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'color':'white'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'color':'white'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'color':'white'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 
 </div>
 </div>

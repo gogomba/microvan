@@ -17,5 +17,5 @@ regression-with-3-factors
 clustering
 interpretation-of-the-results
 histogram-1
-heatmap
+heatmap-table
 demographic

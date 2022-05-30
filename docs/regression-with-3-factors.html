@@ -725,7 +725,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="clustering.html"><a href="clustering.html#interpretation-of-the-results"><i class="fa fa-check"></i><b>6.1</b> Interpretation of the results</a>
 <ul>
 <li class="chapter" data-level="6.1.1" data-path="clustering.html"><a href="clustering.html#histogram-1"><i class="fa fa-check"></i><b>6.1.1</b> Histogram</a></li>
-<li class="chapter" data-level="6.1.2" data-path="clustering.html"><a href="clustering.html#heatmap"><i class="fa fa-check"></i><b>6.1.2</b> Heatmap</a></li>
+<li class="chapter" data-level="6.1.2" data-path="clustering.html"><a href="clustering.html#heatmap-table"><i class="fa fa-check"></i><b>6.1.2</b> Heatmap Table</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="demographic.html"><a href="demographic.html"><i class="fa fa-check"></i><b>7</b> Demographic</a></li>
@@ -762,21 +762,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## lm(formula = mvliking ~ PA1 + PA3 + PA5, data = EFA_with_score)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -0.72678 -0.08413 -0.00353  0.09105  0.98162 
+##     Min      1Q  Median      3Q     Max 
+## -0.7268 -0.0841 -0.0035  0.0910  0.9816 
 ## 
 ## Coefficients:
-##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -1.057e-16  7.780e-03   0.000  1.00000    
-## PA1          1.221e-01  7.789e-03  15.678  &lt; 2e-16 ***
-## PA3          9.800e-01  7.789e-03 125.817  &lt; 2e-16 ***
-## PA5         -2.420e-02  7.789e-03  -3.107  0.00203 ** 
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -1.06e-16   7.78e-03    0.00    1.000    
+## PA1          1.22e-01   7.79e-03   15.68   &lt;2e-16 ***
+## PA3          9.80e-01   7.79e-03  125.82   &lt;2e-16 ***
+## PA5         -2.42e-02   7.79e-03   -3.11    0.002 ** 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.1556 on 396 degrees of freedom
-## Multiple R-squared:  0.976,  Adjusted R-squared:  0.9758 
-## F-statistic:  5362 on 3 and 396 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 0.16 on 396 degrees of freedom
+## Multiple R-squared:  0.976,  Adjusted R-squared:  0.976 
+## F-statistic: 5.36e+03 on 3 and 396 DF,  p-value: &lt;2e-16</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="regression-with-3-factors.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge with all previous data</span></span>
 <span id="cb16-2"><a href="regression-with-3-factors.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#EFA_merge_data &lt;- cbind(microvan, EFA.scores)</span></span>
 <span id="cb16-3"><a href="regression-with-3-factors.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#head(EFA_merge_data)</span></span></code></pre></div>
