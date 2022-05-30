@@ -753,15 +753,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="regression-with-5-factors" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter4</span> Regression with 5 Factors<a href="regression-with-5-factors.html#regression-with-5-factors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <hr />
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="regression-with-5-factors.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data for regression </span></span>
-<span id="cb11-2"><a href="regression-with-5-factors.html#cb11-2" aria-hidden="true" tabindex="-1"></a>EFA_with_score <span class="ot">&lt;-</span> <span class="fu">cbind.data.frame</span>(vars[,<span class="dv">2</span>], EFA.scores) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="regression-with-5-factors.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(., <span class="at">mvliking =</span> <span class="st">&quot;vars[, 2]&quot;</span> )</span>
-<span id="cb11-4"><a href="regression-with-5-factors.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="regression-with-5-factors.html#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="regression-with-5-factors.html#cb11-6" aria-hidden="true" tabindex="-1"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mvliking <span class="sc">~</span> PA1 <span class="sc">+</span> PA2  <span class="sc">+</span>PA3<span class="sc">+</span>PA4 <span class="sc">+</span>PA5, </span>
-<span id="cb11-7"><a href="regression-with-5-factors.html#cb11-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">data=</span>EFA_with_score )</span>
-<span id="cb11-8"><a href="regression-with-5-factors.html#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="regression-with-5-factors.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(EFA_model)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="regression-with-5-factors.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data for regression </span></span>
+<span id="cb12-2"><a href="regression-with-5-factors.html#cb12-2" aria-hidden="true" tabindex="-1"></a>EFA_with_score <span class="ot">&lt;-</span> <span class="fu">cbind.data.frame</span>(vars[,<span class="dv">2</span>], EFA.scores) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="regression-with-5-factors.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(., <span class="at">mvliking =</span> <span class="st">&quot;vars[, 2]&quot;</span> )</span>
+<span id="cb12-4"><a href="regression-with-5-factors.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="regression-with-5-factors.html#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="regression-with-5-factors.html#cb12-6" aria-hidden="true" tabindex="-1"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mvliking <span class="sc">~</span> PA1 <span class="sc">+</span> PA2  <span class="sc">+</span>PA3<span class="sc">+</span>PA4 <span class="sc">+</span>PA5, </span>
+<span id="cb12-7"><a href="regression-with-5-factors.html#cb12-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">data=</span>EFA_with_score )</span>
+<span id="cb12-8"><a href="regression-with-5-factors.html#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="regression-with-5-factors.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(EFA_model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mvliking ~ PA1 + PA2 + PA3 + PA4 + PA5, data = EFA_with_score)
@@ -784,9 +784,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 0.16 on 394 degrees of freedom
 ## Multiple R-squared:  0.976,  Adjusted R-squared:  0.976 
 ## F-statistic: 3.2e+03 on 5 and 394 DF,  p-value: &lt;2e-16</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="regression-with-5-factors.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge with all previous data</span></span>
-<span id="cb13-2"><a href="regression-with-5-factors.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#EFA_merge_data &lt;- cbind(microvan, EFA.scores)</span></span>
-<span id="cb13-3"><a href="regression-with-5-factors.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#head(EFA_merge_data)</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="regression-with-5-factors.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge with all previous data</span></span>
+<span id="cb14-2"><a href="regression-with-5-factors.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#EFA_merge_data &lt;- cbind(microvan, EFA.scores)</span></span>
+<span id="cb14-3"><a href="regression-with-5-factors.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#head(EFA_merge_data)</span></span></code></pre></div>
 </div>
             </section>
 

@@ -23,7 +23,7 @@ numCols = c("mean",
                     "skew",
                     "kurtosis",
                     "se")
-DT::datatable(description,
+DT::datatable(description,fillContainer = T,
               
               options = list(pageLength = 10,
                              scrollX = TRUE,

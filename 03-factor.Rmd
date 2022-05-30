@@ -63,6 +63,7 @@ EFA <- psych::fa(
 
 ##  Factor Loadings
 ```{r}
+
 columnOrder <- c("PA1", "PA2", "PA3", "PA4","PA5","Communality","Uniqueness")
 
 EFA_loadings <- data.frame(EFA$loadings[,]
@@ -71,11 +72,56 @@ EFA_loadings <- data.frame(EFA$loadings[,]
                 Communality = EFA$communality) %>%
   dplyr::mutate(., across(where(is.numeric), round, 2)) %>%
   dplyr::select(columnOrder) %>%
-  arrange(., -Communality)
+  arrange(., -Communality) 
 
-DT::datatable(EFA_loadings)
 ```
 
+
+```{r}
+EFA_loadings_DT = EFA_loadings  %>%
+    tibble::rownames_to_column(., var="variable")
+
+# PA cols
+PACols = c("PA1", "PA2", "PA3", "PA4","PA5")
+
+# color
+colfunc <- colorRampPalette(c("darkblue", "lightgrey"))
+
+# DT table 
+DT::datatable(EFA_loadings_DT , 
+              options = list(pageLength = 15)) %>%
+  formatStyle("PA1",
+              backgroundColor = styleEqual(sort(unique(EFA_loadings_DT $PA1),
+                                                decreasing = TRUE),
+                                           colfunc(length(
+                                             unique(EFA_loadings_DT $PA1)
+                                           )))) %>%
+  formatStyle("PA2",
+              backgroundColor = styleEqual(sort(unique(EFA_loadings_DT $PA2),
+                                                decreasing = TRUE),
+                                           colfunc(length(
+                                             unique(EFA_loadings_DT $PA2)
+                                           )))) %>%
+  formatStyle("PA3",
+              backgroundColor = styleEqual(sort(unique(EFA_loadings_DT $PA3),
+                                                decreasing = TRUE),
+                                           colfunc(length(
+                                             unique(EFA_loadings_DT $PA3)
+                                           )))) %>%
+  formatStyle("PA4",
+              backgroundColor = styleEqual(sort(unique(EFA_loadings_DT $PA4),
+                                                decreasing = TRUE),
+                                           colfunc(length(
+                                             unique(EFA_loadings_DT $PA4)
+                                           )))) %>%
+  formatStyle("PA5",
+              backgroundColor = styleEqual(sort(unique(EFA_loadings_DT $PA5),
+                                                decreasing = TRUE),
+                                           colfunc(length(
+                                             unique(EFA_loadings_DT $PA5)
+                                           )))) %>%
+  formatStyle(PACols, color = "white")
+```
 ## Factor Scores
 ```{r}
 # extract rotated factor scores 
