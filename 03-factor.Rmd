@@ -73,7 +73,8 @@ EFA_loadings <- data.frame(EFA$loadings[,]
   dplyr::mutate(., across(where(is.numeric), round, 2)) %>%
   dplyr::select(columnOrder) %>%
   arrange(., -Communality)
-  
+
+DT::datatable(EFA_loadings)
 ```
 ```{r}
 # a function to highlight cells value > 0.5 or < -0.5
@@ -85,21 +86,32 @@ colorCell <- function(x, n, nmax){
 }
 
 # show table in rMarkdown
-EFA_loading_table = EFA_loadings %>% 
-  mutate_all(funs(colorCell(., 
-                      n = row_number(), 
-                      nmax = n()))) %>% 
-  kable(escape = FALSE) %>% 
-  kable_styling(bootstrap_options = "striped", full_width = F, position = "center") 
+#EFA_loading_table = EFA_loadings %>% 
+ # mutate_all(funs(colorCell(., 
+  #                    n = row_number(), 
+   #                   nmax = n()))) %>% 
+  #kable(escape = FALSE) %>% 
+  #kable_styling(bootstrap_options = "striped",
+   #             full_width = F, position = "center") 
 
-paged_table(EFA_loadings)
+#paged_table(EFA_loadings)
 ```
 
 ## Factor Scores
 ```{r}
 # extract rotated factor scores 
 EFA.scores = factor.scores(vars[,-1], 
-                           unclass(EFA$loadings))$scores
+                           unclass(EFA$loadings))$scores 
+options("digits" = 3)
+
+DT_cols  = c("PA1","PA2","PA3","PA4","PA5")
+EFA.scores %>%
+  as.data.frame()%>%
+  mutate(subjnumb = microvan_df$subjnumb)%>%
+  head(5) %>%
+  DT::datatable(caption = "Top 5 rows")  %>%
+  DT::formatRound(columns=DT_cols , digits=2)
+
 
 ```
 
