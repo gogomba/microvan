@@ -130,11 +130,14 @@ EFA.scores = factor.scores(vars[,-1],
 
 
 DT_cols  = c("PA1","PA2","PA3","PA4","PA5")
+subjectValue =microvan$subjnumb
+
 EFA.scores %>%
-  as.data.frame()%>%
-  mutate(subjnumb = microvan_df$subjnumb)%>%
+  as.data.frame() %>%
+  mutate(subjnumb = subjectValue )%>%
+  select(subjnumb, everything())%>%
   head(5) %>%
-  DT::datatable(caption = "Top 5 rows")  %>%
+  DT::datatable(caption = "Top 5 subjects",rownames = F)  %>%
   DT::formatRound(columns=DT_cols , digits=2)
 
 
