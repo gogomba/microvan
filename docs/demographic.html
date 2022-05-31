@@ -716,7 +716,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#extract-principal-factors"><i class="fa fa-check"></i><b>3.2</b> Extract Principal Factors</a></li>
 <li class="chapter" data-level="3.3" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#factor-loadings"><i class="fa fa-check"></i><b>3.3</b> Factor Loadings</a></li>
-<li class="chapter" data-level="3.4" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#factor-scores"><i class="fa fa-check"></i><b>3.4</b> Factor Scores</a></li>
+<li class="chapter" data-level="3.4" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#section"><i class="fa fa-check"></i><b>3.4</b> </a></li>
+<li class="chapter" data-level="3.5" data-path="exploratory-factor-analysis.html"><a href="exploratory-factor-analysis.html#factor-scores"><i class="fa fa-check"></i><b>3.5</b> Factor Scores</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="regression-with-5-factors.html"><a href="regression-with-5-factors.html"><i class="fa fa-check"></i><b>4</b> Regression with 5 Factors</a></li>
 <li class="chapter" data-level="5" data-path="regression-with-3-factors.html"><a href="regression-with-3-factors.html"><i class="fa fa-check"></i><b>5</b> Regression with 3 Factors</a></li>
@@ -761,7 +762,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <div id="histogram-2" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Histogram<a href="demographic.html#histogram-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="demographic.html#cb28-1" aria-hidden="true" tabindex="-1"></a>demo_cluster <span class="ot">&lt;-</span> <span class="fu">cbind</span>(microvan[,<span class="dv">33</span><span class="sc">:</span><span class="dv">39</span>], <span class="at">cluster=</span> EFA_kmeans<span class="sc">$</span>cluster) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="demographic.html#cb28-1" aria-hidden="true" tabindex="-1"></a>demo_cluster <span class="ot">&lt;-</span> <span class="fu">cbind</span>(microvan[,<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">33</span><span class="sc">:</span><span class="dv">39</span>)], <span class="at">cluster=</span> EFA_kmeans<span class="sc">$</span>cluster) <span class="sc">%&gt;%</span></span>
 <span id="cb28-2"><a href="demographic.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() </span>
 <span id="cb28-3"><a href="demographic.html#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-4"><a href="demographic.html#cb28-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> demo_cluster <span class="sc">%&gt;%</span></span>
@@ -772,7 +773,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb28-9"><a href="demographic.html#cb28-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>cluster <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>cluster)</span>
 <span id="cb28-10"><a href="demographic.html#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-11"><a href="demographic.html#cb28-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>variable,</span>
-<span id="cb28-12"><a href="demographic.html#cb28-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;age&quot;</span>,</span>
+<span id="cb28-12"><a href="demographic.html#cb28-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;mvliking&quot;</span>,<span class="st">&quot;age&quot;</span>,</span>
 <span id="cb28-13"><a href="demographic.html#cb28-13" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;income&quot;</span>,</span>
 <span id="cb28-14"><a href="demographic.html#cb28-14" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;miles&quot;</span>,</span>
 <span id="cb28-15"><a href="demographic.html#cb28-15" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;educ&quot;</span>,</span>
@@ -804,7 +805,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="demographic.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ridge plot</span></span>
 <span id="cb29-2"><a href="demographic.html#cb29-2" aria-hidden="true" tabindex="-1"></a>demo_cluster_ridge <span class="ot">=</span> df <span class="sc">%&gt;%</span></span>
 <span id="cb29-3"><a href="demographic.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">y=</span>cluster, <span class="at">x=</span>value,  <span class="at">fill=</span>cluster)) <span class="sc">+</span></span>
-<span id="cb29-4"><a href="demographic.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density_ridges</span>(<span class="at">alpha=</span><span class="fl">0.6</span>, <span class="at">stat=</span><span class="st">&quot;binline&quot;</span>, <span class="at">bins=</span><span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="demographic.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density_ridges</span>(<span class="at">alpha=</span><span class="fl">0.3</span>, <span class="at">stat=</span><span class="st">&quot;binline&quot;</span>, <span class="at">bins=</span><span class="dv">20</span>) <span class="sc">+</span></span>
 <span id="cb29-5"><a href="demographic.html#cb29-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">facet_wrap</span>( <span class="sc">~</span> variable, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>,<span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
 <span id="cb29-6"><a href="demographic.html#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
 <span id="cb29-7"><a href="demographic.html#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span>  </span>

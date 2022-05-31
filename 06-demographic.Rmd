@@ -3,7 +3,7 @@
 
 ## Histogram
 ```{r message=F}
-demo_cluster <- cbind(microvan[,33:39], cluster= EFA_kmeans$cluster) %>%
+demo_cluster <- cbind(microvan[,c(2,33:39)], cluster= EFA_kmeans$cluster) %>%
   as.data.frame() 
 
 df = demo_cluster %>%
@@ -14,7 +14,7 @@ df = demo_cluster %>%
 df$cluster <- factor(df$cluster)
 
 df$variable <- factor(df$variable,
-                      levels = c("age",
+                      levels = c("mvliking","age",
                                  "income",
                                  "miles",
                                  "educ",
@@ -51,7 +51,7 @@ knitr::include_graphics(demo_cluster_hist_path)
 # ridge plot
 demo_cluster_ridge = df %>%
   ggplot( aes(y=cluster, x=value,  fill=cluster)) +
-    geom_density_ridges(alpha=0.6, stat="binline", bins=20) +
+    geom_density_ridges(alpha=0.3, stat="binline", bins=20) +
    facet_wrap( ~ variable, scales = "free",ncol = 4) +
     xlab("") +
     ylab("") +  

@@ -1,4 +1,4 @@
-fig:unnamed-chunk-5
+fig:unnamed-chunk-10
 executive-summary
 explorative-data-analysis
 histogram
@@ -12,6 +12,7 @@ cumulative-percentages-of-variance
 select-number-of-factors-using-kaiser-rule
 extract-principal-factors
 factor-loadings
+section
 factor-scores
 regression-with-5-factors
 regression-with-3-factors

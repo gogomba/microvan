@@ -122,6 +122,8 @@ DT::datatable(EFA_loadings_DT ,
                                            )))) %>%
   formatStyle(PACols, color = "white")
 ```
+## 
+
 ## Factor Scores
 ```{r}
 # extract rotated factor scores 
