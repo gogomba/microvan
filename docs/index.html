@@ -23,7 +23,7 @@
 <meta name="author" content="Hammond" />
 
 
-<meta name="date" content="2022-05-30" />
+<meta name="date" content="2022-05-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -726,11 +726,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="clustering.html"><a href="clustering.html#k-means"><i class="fa fa-check"></i><b>6.2</b> K-Means</a></li>
 <li class="chapter" data-level="6.3" data-path="clustering.html"><a href="clustering.html#interpretation-of-the-results"><i class="fa fa-check"></i><b>6.3</b> Interpretation of the results</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="clustering.html"><a href="clustering.html#histogram-1"><i class="fa fa-check"></i><b>6.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="6.3.2" data-path="clustering.html"><a href="clustering.html#heatmap-table"><i class="fa fa-check"></i><b>6.3.2</b> Heatmap Table</a></li>
+<li class="chapter" data-level="6.3.1" data-path="clustering.html"><a href="clustering.html#heatmap-table"><i class="fa fa-check"></i><b>6.3.1</b> Heatmap Table</a></li>
+<li class="chapter" data-level="6.3.2" data-path="clustering.html"><a href="clustering.html#histogram-1"><i class="fa fa-check"></i><b>6.3.2</b> Histogram</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="demographic.html"><a href="demographic.html"><i class="fa fa-check"></i><b>7</b> Demographic</a></li>
+<li class="chapter" data-level="7" data-path="demographic.html"><a href="demographic.html"><i class="fa fa-check"></i><b>7</b> Demographic</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="demographic.html"><a href="demographic.html#histogram-2"><i class="fa fa-check"></i><b>7.1</b> Histogram</a></li>
+<li class="chapter" data-level="7.2" data-path="demographic.html"><a href="demographic.html#ridge-plot"><i class="fa fa-check"></i><b>7.2</b> Ridge plot</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/gogomba/microvan" target="blank">GitHub</a></li>
@@ -755,7 +759,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Microvan</h1>
 <p class="author"><em>Hammond</em></p>
-<p class="date"><em>2022-05-30</em></p>
+<p class="date"><em>2022-05-31</em></p>
 </div>
 <div id="about" class="section level1 unnumbered hasAnchor">
 <h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -777,16 +781,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-12"><a href="index.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-13"><a href="index.html#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
 <span id="cb1-14"><a href="index.html#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb1-15"><a href="index.html#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="index.html#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># rMarkdown </span></span>
-<span id="cb1-17"><a href="index.html#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span>
-<span id="cb1-18"><a href="index.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb1-19"><a href="index.html#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="index.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># file path management </span></span>
-<span id="cb1-21"><a href="index.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb1-22"><a href="index.html#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="index.html#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># stat</span></span>
-<span id="cb1-24"><a href="index.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code></pre></div>
+<span id="cb1-15"><a href="index.html#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb1-16"><a href="index.html#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="index.html#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># rMarkdown </span></span>
+<span id="cb1-18"><a href="index.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span>
+<span id="cb1-19"><a href="index.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-20"><a href="index.html#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="index.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># file path management </span></span>
+<span id="cb1-22"><a href="index.html#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-23"><a href="index.html#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="index.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># stat</span></span>
+<span id="cb1-25"><a href="index.html#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code></pre></div>
 
 </div>
             </section>

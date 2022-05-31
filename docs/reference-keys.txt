@@ -1,3 +1,4 @@
+fig:unnamed-chunk-5
 executive-summary
 explorative-data-analysis
 histogram
@@ -18,6 +19,8 @@ clustering
 dendrogram
 k-means
 interpretation-of-the-results
-histogram-1
 heatmap-table
+histogram-1
 demographic
+histogram-2
+ridge-plot

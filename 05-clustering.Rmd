@@ -34,47 +34,16 @@ fviz_cluster(EFA_kmeans,
 ```
 
 ## Interpretation of the results
-### Histogram
 ```{r,echo=FALSE,message=FALSE}
-
+# merge vars and cluster result
 vars_cluster <- cbind(vars, cluster= EFA_kmeans$cluster) %>%
   as.data.frame()
 
-df = vars_cluster %>%
-  gather(variable, value, -cluster)  %>%
-  as.data.frame()
-
-# factorize cluster 
-df$cluster <- factor(df$cluster)
-
-# plot
-vars_cluster_hist = ggplot(df, aes(value, 
-                     fill = cluster, 
-                     color = cluster)) +
-  geom_histogram(alpha = 0.5, position = "identity")  +
-  facet_wrap( ~ variable, scales = "free",ncol = 6)  +
-  theme_economist_white() 
-
-vars_cluster_hist_path = file.path(plotDir, "vars_cluster_hist.png")
-
-ggsave(
-  filename = vars_cluster_hist_path,
-  plot = vars_cluster_hist,
-  width = 3000,
-  height = 3000,
-  units = "px"
-)
 ```
-```{r echo=FALSE, fig.cap="", out.width = '100%'}
-knitr::include_graphics(vars_cluster_hist_path)
-```
-
-
+### Heatmap Table
 
 ```{r}
 # Average for each cluster with one step
-
-
 vars_cluster_agg = aggregate(vars_cluster[, 2:31],
           by = list(cluster = EFA_kmeans$cluster), 
           FUN = mean)
@@ -84,7 +53,6 @@ df <- vars_cluster_agg %>%
  
 ```
 
-### Heatmap Table
 ```{r}
 library(gt)
 library(scales)
@@ -156,4 +124,36 @@ DT::datatable(df_wider )%>%
   formatStyle(clusterCols, 
                background =  styleInterval(0, c("lightgrey","darkblue")),
               color = "white")
+```
+
+
+### Histogram
+```{r message=F}
+df = vars_cluster %>%
+  gather(variable, value, -cluster)  %>%
+  as.data.frame()
+
+# factorize cluster 
+df$cluster <- factor(df$cluster)
+
+# plot
+vars_cluster_hist = ggplot(df, aes(value, 
+                     fill = cluster, 
+                     color = cluster)) +
+  geom_histogram(alpha = 0.3, position = "identity")  +
+  facet_wrap( ~ variable, scales = "free",ncol = 6)  +
+  theme_economist_white() 
+
+vars_cluster_hist_path = file.path(plotDir, "vars_cluster_hist.png")
+
+ggsave(
+  filename = vars_cluster_hist_path,
+  plot = vars_cluster_hist,
+  width = 3000,
+  height = 3000,
+  units = "px"
+)
+```
+```{r echo=FALSE, fig.cap="", out.width = '100%'}
+knitr::include_graphics(vars_cluster_hist_path)
 ```

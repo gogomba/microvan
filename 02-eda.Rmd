@@ -10,7 +10,11 @@ microvan <- as.data.table(lapply(microvan, as.numeric))
 
 # data description
 description = psych::describe(microvan) %>%
-  as.data.frame()
+  as.data.frame() %>%
+  tibble::rownames_to_column(.,var="variable") %>%
+   dplyr::select(vars,everything())%>%
+  dplyr::rename(., "variable id" = "vars")
+ 
 
 # columns that need to be formatted
 numCols = c("mean",
@@ -23,16 +27,21 @@ numCols = c("mean",
                     "skew",
                     "kurtosis",
                     "se")
-DT::datatable(description,fillContainer = T,
-              
-              options = list(pageLength = 10,
-                             scrollX = TRUE,
-                             scrollY = TRUE) )%>%
-  DT::formatRound(columns=numCols , digits=1)
+DT::datatable(
+  description,
+  rownames = F,
+  fillContainer = T,
+  options = list(
+    pageLength = 10,
+    scrollX = TRUE,
+    scrollY = TRUE
+  )
+) %>%
+  DT::formatRound(columns = numCols , digits = 1)
 ```
 
 ## Histogram
-```{r echo=FALSE, message=FALSE}
+```{r}
 
 microvan_df = microvan[,2:32] %>%
   gather()
@@ -52,7 +61,7 @@ ggsave(
 )
 ```
 
-```{r echo=FALSE, fig.cap="", out.width = '100%'}
+```{r echo=FALSE, fig.cap="Variable 2-32", out.width = '100%'}
 knitr::include_graphics(microvan_hist_path)
 ```
 
@@ -87,7 +96,7 @@ knitr::include_graphics(scatterPlot)
 ```
 
 ### Correlation Matrix
-```{r,echo=FALSE,message=FALSE}
+```{r message=FALSE}
 # plot name
 corrPlot = file.path(plotDir, "corrPlot.png")
 cor_with_mvliking <- cor(vars[,-1])
@@ -101,7 +110,7 @@ corrplot(cor_with_mvliking,
          method="number", 
          type="upper", 
          order = "hclust", # reorder by the size of the correlation coefficients
-         tl.cex = 1.4,     # font size of the variable labels
+         tl.cex = 1.5,     # font size of the variable labels
          tl.col = "black", # color of the variable labels
          tl.srt = 45,      # rotation angle for the variable labels
          number.cex = 1.4    # font size of the coefficients

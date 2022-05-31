@@ -1,7 +1,75 @@
 # Demographic
 ***
 
+## Histogram
+```{r message=F}
+demo_cluster <- cbind(microvan[,33:39], cluster= EFA_kmeans$cluster) %>%
+  as.data.frame() 
+
+df = demo_cluster %>%
+  gather(variable, value, -cluster)  %>%
+  as.data.frame()
+
+# factorize cluster 
+df$cluster <- factor(df$cluster)
+
+df$variable <- factor(df$variable,
+                      levels = c("age",
+                                 "income",
+                                 "miles",
+                                 "educ",
+                                 "numkids",
+                                 "recycle",
+                                 "female"))
+
+# plot
+demo_cluster_hist = ggplot(df, aes(value, 
+                     fill = cluster, 
+                     color = cluster)) +
+  geom_histogram(alpha = 0.3, position = "identity")  +
+  facet_wrap( ~ variable, scales = "free",ncol = 4)  +
+  theme_economist_white() 
+
+demo_cluster_hist_path = file.path(plotDir, "demo_cluster_hist.png")
+
+ggsave(
+  filename = demo_cluster_hist_path,
+  plot = demo_cluster_hist,
+  width = 2400,
+  height = 1800,
+  units = "px"
+)
+```
+
+```{r echo=FALSE, fig.cap="", out.width = '100%'}
+knitr::include_graphics(demo_cluster_hist_path)
+```
+
+
+## Ridge plot
 ```{r}
+# ridge plot
+demo_cluster_ridge = df %>%
+  mutate(cluster = fct_reorder(cluster, value)) %>%
+  ggplot( aes(y=cluster, x=value,  fill=cluster)) +
+    geom_density_ridges(alpha=0.6, stat="binline", bins=20) +
+   facet_wrap( ~ variable, scales = "free",ncol = 4) +
+    xlab("") +
+    ylab("") +  
+  theme_economist_white() 
 
 
+demo_cluster_ridge_path = file.path(plotDir, "demo_cluster_ridge.png")
+
+ggsave(
+  filename = demo_cluster_ridge_path,
+  plot = demo_cluster_ridge,
+  width = 2400,
+  height = 1800,
+  units = "px"
+)
+```
+
+```{r echo=FALSE, fig.cap="", out.width = '100%'}
+knitr::include_graphics(demo_cluster_ridge_path)
 ```
