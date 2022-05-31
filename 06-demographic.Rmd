@@ -50,7 +50,6 @@ knitr::include_graphics(demo_cluster_hist_path)
 ```{r}
 # ridge plot
 demo_cluster_ridge = df %>%
-  mutate(cluster = fct_reorder(cluster, value)) %>%
   ggplot( aes(y=cluster, x=value,  fill=cluster)) +
     geom_density_ridges(alpha=0.6, stat="binline", bins=20) +
    facet_wrap( ~ variable, scales = "free",ncol = 4) +

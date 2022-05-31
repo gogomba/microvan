@@ -803,24 +803,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.2</span> Ridge plot<a href="demographic.html#ridge-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="demographic.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ridge plot</span></span>
 <span id="cb29-2"><a href="demographic.html#cb29-2" aria-hidden="true" tabindex="-1"></a>demo_cluster_ridge <span class="ot">=</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb29-3"><a href="demographic.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cluster =</span> <span class="fu">fct_reorder</span>(cluster, value)) <span class="sc">%&gt;%</span></span>
-<span id="cb29-4"><a href="demographic.html#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">y=</span>cluster, <span class="at">x=</span>value,  <span class="at">fill=</span>cluster)) <span class="sc">+</span></span>
-<span id="cb29-5"><a href="demographic.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density_ridges</span>(<span class="at">alpha=</span><span class="fl">0.6</span>, <span class="at">stat=</span><span class="st">&quot;binline&quot;</span>, <span class="at">bins=</span><span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb29-6"><a href="demographic.html#cb29-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">facet_wrap</span>( <span class="sc">~</span> variable, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>,<span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb29-7"><a href="demographic.html#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb29-8"><a href="demographic.html#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span>  </span>
-<span id="cb29-9"><a href="demographic.html#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist_white</span>() </span>
+<span id="cb29-3"><a href="demographic.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">y=</span>cluster, <span class="at">x=</span>value,  <span class="at">fill=</span>cluster)) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="demographic.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density_ridges</span>(<span class="at">alpha=</span><span class="fl">0.6</span>, <span class="at">stat=</span><span class="st">&quot;binline&quot;</span>, <span class="at">bins=</span><span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb29-5"><a href="demographic.html#cb29-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">facet_wrap</span>( <span class="sc">~</span> variable, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>,<span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb29-6"><a href="demographic.html#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb29-7"><a href="demographic.html#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb29-8"><a href="demographic.html#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist_white</span>() </span>
+<span id="cb29-9"><a href="demographic.html#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-10"><a href="demographic.html#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-11"><a href="demographic.html#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-12"><a href="demographic.html#cb29-12" aria-hidden="true" tabindex="-1"></a>demo_cluster_ridge_path <span class="ot">=</span> <span class="fu">file.path</span>(plotDir, <span class="st">&quot;demo_cluster_ridge.png&quot;</span>)</span>
-<span id="cb29-13"><a href="demographic.html#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-14"><a href="demographic.html#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb29-15"><a href="demographic.html#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> demo_cluster_ridge_path,</span>
-<span id="cb29-16"><a href="demographic.html#cb29-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> demo_cluster_ridge,</span>
-<span id="cb29-17"><a href="demographic.html#cb29-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">2400</span>,</span>
-<span id="cb29-18"><a href="demographic.html#cb29-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">1800</span>,</span>
-<span id="cb29-19"><a href="demographic.html#cb29-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;px&quot;</span></span>
-<span id="cb29-20"><a href="demographic.html#cb29-20" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<span id="cb29-11"><a href="demographic.html#cb29-11" aria-hidden="true" tabindex="-1"></a>demo_cluster_ridge_path <span class="ot">=</span> <span class="fu">file.path</span>(plotDir, <span class="st">&quot;demo_cluster_ridge.png&quot;</span>)</span>
+<span id="cb29-12"><a href="demographic.html#cb29-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-13"><a href="demographic.html#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb29-14"><a href="demographic.html#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> demo_cluster_ridge_path,</span>
+<span id="cb29-15"><a href="demographic.html#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> demo_cluster_ridge,</span>
+<span id="cb29-16"><a href="demographic.html#cb29-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">2400</span>,</span>
+<span id="cb29-17"><a href="demographic.html#cb29-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">1800</span>,</span>
+<span id="cb29-18"><a href="demographic.html#cb29-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;px&quot;</span></span>
+<span id="cb29-19"><a href="demographic.html#cb29-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="plot/demo_cluster_ridge.png" width="100%" /></p>
 
 </div>
