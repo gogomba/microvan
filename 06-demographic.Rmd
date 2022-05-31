@@ -1,7 +1,7 @@
 # Demographic
 ***
 
-## Histogram
+## Merge cluster data with decographic data 
 ```{r message=F}
 demo_cluster <- cbind(microvan[,c(2,33:39)], cluster= EFA_kmeans$cluster) %>%
   as.data.frame() 
@@ -10,6 +10,13 @@ df = demo_cluster %>%
   gather(variable, value, -cluster)  %>%
   as.data.frame()
 
+
+DT::datatable(df , 
+              options = list(pageLength = 10)) 
+```
+
+## Histogram
+```{r}
 # factorize cluster 
 df$cluster <- factor(df$cluster)
 

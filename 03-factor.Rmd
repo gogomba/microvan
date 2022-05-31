@@ -89,7 +89,7 @@ colfunc <- colorRampPalette(c("darkblue", "lightgrey"))
 
 # DT table 
 DT::datatable(EFA_loadings_DT , 
-              options = list(pageLength = 15)) %>%
+              options = list(pageLength = 30)) %>%
   formatStyle("PA1",
               backgroundColor = styleEqual(sort(unique(EFA_loadings_DT $PA1),
                                                 decreasing = TRUE),
@@ -122,7 +122,7 @@ DT::datatable(EFA_loadings_DT ,
                                            )))) %>%
   formatStyle(PACols, color = "white")
 ```
-## 
+
 
 ## Factor Scores
 ```{r}
