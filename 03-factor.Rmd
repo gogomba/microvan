@@ -25,7 +25,7 @@ rmarkdown::paged_table(EV_df )
 
 ### Scree Plot
 ```{r}
-psych::scree(cor, pc = TRUE, factors = FALSE)
+psych::scree(cor, pc = TRUE, factors = FALSE,)
 ```
 
 ### Cumulative Percentages of Variance 
@@ -36,7 +36,7 @@ plot(cumsum(EV/length(EV)),
      col = "darkblue",
      pch = 16, # plot symbol: 16 = filled circle
      cex = 1, # size of plot symbols
-     xlab = "Number of factors", # a title for the x axis
+     xlab = "Total number of factors", # a title for the x axis
      ylab = "Cumulative variance explained", # a title for the y axis 
     main= "Cumulative Variance",  
      lwd = 2) # line width
@@ -142,8 +142,8 @@ EFA.scores %>%
   as.data.frame() %>%
   mutate(subjnumb = subjectValue )%>%
   select(subjnumb, everything())%>%
-  head(5) %>%
-  DT::datatable(caption = "Top 5 subjects",rownames = F)  %>%
+  head(10) %>%
+  DT::datatable(caption = "Top 10 subjects",rownames = F)  %>%
   DT::formatRound(columns=DT_cols , digits=2)
 
 

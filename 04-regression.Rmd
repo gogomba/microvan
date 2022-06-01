@@ -8,12 +8,65 @@ EFA_with_score <- cbind.data.frame(vars[,2], EFA.scores) %>%
 
 EFA_model <- lm(mvliking ~ PA1 + PA2  +PA3+PA4 +PA5, 
                 data=EFA_with_score )
+# summary output
+s =summary(EFA_model)
 
-summary(EFA_model)
+#----------------------------------#
+# regression dataframe extraction
+#----------------------------------#
+# p-value col
+pvalueCol = "p-value"
 
-# merge with all previous data
-#EFA_merge_data <- cbind(microvan, EFA.scores)
-#head(EFA_merge_data)
+modelCol ="model"
+
+#numeric cols
+numCols  = c("coefficient", "std. Error", "t value", "p-value")
+
+# rename all cols
+st_newnames = c(modelCol, numCols)
+
+#----------------------------------#
+# extract coefficient table
+#----------------------------------#
+st =s$coefficients %>%
+  as.data.frame()  %>%
+  tibble::rownames_to_column(., var= modelCol) 
+
+# rename all cols
+colnames(st) = st_newnames 
+
+# add significance stars
+st =st %>%
+  dplyr::mutate(significance = case_when(
+    !!sym(pvalueCol) < 0.001 ~ "     ***",
+    !!sym(pvalueCol) < 0.01 ~ "     **",
+    !!sym(pvalueCol) < 0.05 ~ "     *",
+    TRUE ~ ""
+  ))
+
+#----------------------------------#
+# show as DT table
+#----------------------------------#
+captionText = paste0("Adjusted R-squared: ", round(s$adj.r.squared, 2)) 
+st %>%
+  DT::datatable(
+    caption = captionText ,
+    rownames = F,
+    extensions = "Buttons",
+    options = list(
+      paging = TRUE,
+      scrollX = TRUE,
+      searching = TRUE,
+      ordering = TRUE,
+      dom = 'Bfrtip',
+      buttons = c('copy', 'csv', 'excel', 'pdf'),
+      pageLength = 5,
+      lengthMenu = c(3, 5, 10)
+    )
+  )  %>%
+  #DT::formatRound(numCols, digits=4) %>%
+  formatSignif(numCols, digits = 1)
+
 ```
 
 # Regression with 3 Factors
@@ -22,9 +75,50 @@ summary(EFA_model)
 EFA_model2 <- lm(mvliking ~ PA1 + PA3  + PA5, 
                 data=EFA_with_score )
 
-summary(EFA_model2)
+# summary output
+s =summary(EFA_model2)
 
-# merge with all previous data
-#EFA_merge_data <- cbind(microvan, EFA.scores)
-#head(EFA_merge_data)
+#----------------------------------#
+# extract coefficient table
+#----------------------------------#
+st =s$coefficients %>%
+  as.data.frame()  %>%
+  tibble::rownames_to_column(., var= modelCol) 
+
+# rename all cols
+colnames(st) = st_newnames 
+
+# add significance stars
+st =st %>%
+  dplyr::mutate(significance = case_when(
+    !!sym(pvalueCol) < 0.001 ~ "     ***",
+    !!sym(pvalueCol) < 0.01 ~ "     **",
+    !!sym(pvalueCol) < 0.05 ~ "     *",
+    TRUE ~ ""
+  ))
+
+
+#----------------------------------#
+# show as DT table
+#----------------------------------#
+captionText = paste0("Adjusted R-squared: ", round(s$adj.r.squared, 2))
+st %>%
+  DT::datatable(
+    caption = captionText ,
+    rownames = F,
+    extensions = "Buttons",
+    options = list(
+      paging = TRUE,
+      scrollX = TRUE,
+      searching = TRUE,
+      ordering = TRUE,
+      dom = 'Bfrtip',
+      buttons = c('copy', 'csv', 'excel', 'pdf'),
+      pageLength = 5,
+      lengthMenu = c(3, 5, 10)
+    )
+  )  %>%
+  #DT::formatRound(numCols, digits=4) %>%
+  formatSignif(numCols, digits = 1)
+
 ```
