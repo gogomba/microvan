@@ -4,14 +4,15 @@
 ## Merge cluster data with decographic data 
 ```{r message=F}
 demo_cluster <- cbind(microvan[,c(2,33:39)], cluster= EFA_kmeans$cluster) %>%
-  as.data.frame() 
+  as.data.frame() %>%
+  select(cluster, everything())
 
 df = demo_cluster %>%
   gather(variable, value, -cluster)  %>%
   as.data.frame()
 
 
-DT::datatable(df , 
+DT::datatable(demo_cluster , 
               options = list(pageLength = 10)) 
 ```
 
