@@ -1,10 +1,11 @@
-fig:unnamed-chunk-5
+fig:unnamed-chunk-7
 executive-summary
 explorative-data-analysis
 histogram
 correlation-analysis
 pair-wise-scatter-plot
 correlation-matrix
+normality-test
 exploratory-factor-analysis
 eigenvalues
 scree-plot

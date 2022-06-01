@@ -99,7 +99,7 @@ knitr::include_graphics(scatterPlot)
 ```{r message=FALSE}
 # plot name
 corrPlot = file.path(plotDir, "corrPlot.png")
-cor_with_mvliking <- cor(vars[,-1])
+cor_with_mvliking <- cor(vars)
 png(
   filename = corrPlot,
   width = 1500,
@@ -123,5 +123,26 @@ invisible(dev.off())
 knitr::include_graphics(corrPlot )
 ```
 
+### Normality test
+```{r}
+options(digits = 3)
+df_test= microvan[, 2:32] 
+lshap = df_test%>%
+  
+  summarise_all(.funs = funs(#statistic = shapiro.test(.)$statistic,
+    p.value = shapiro.test(.)$p.value)) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(., var = "variable") %>%
+  dplyr::rename(., pvalue = "V1") %>%
+  #  data is normal if the p-value is above 0.05
+  dplyr::mutate(normality = case_when(pvalue > 0.05 ~ "normal",
+                                      pvalue <= 0.05 ~ "not_normal"))
 
+normal_v =  lshap%>%
+  filter(normality =="normal") %>%
+  pull(variable)
+  
+shapiro.test(df_test$mvliking)
+```
 
