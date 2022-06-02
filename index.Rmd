@@ -64,6 +64,12 @@ dataDir = file.path(mainDir,"data")
 plotDir = file.path(mainDir,"plot")
 reportDir = file.path(mainDir, "report")
 jsDir =file.path(mainDir,"js")
+
+function.dir = base::file.path(mainDir, 'src', 'R')
+function.file = base::list.files(function.dir, pattern='*.[r|R]')
+base::invisible(base::sapply(base::file.path(function.dir, function.file), base::source))
+
+
 ```
 
 ```{r htmlTemp, echo=FALSE, eval=TRUE}

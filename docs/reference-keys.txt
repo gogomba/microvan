@@ -1,4 +1,4 @@
-fig:unnamed-chunk-7
+fig:unnamed-chunk-18
 executive-summary
 explorative-data-analysis
 histogram
@@ -26,3 +26,9 @@ demographic
 merge-cluster-data-with-decographic-data
 histogram-2
 ridge-plot
+count-of-subjects-in-clusters
+stat
+female
+education
+kruskalwallis-h-test
+factor-vs-cluster

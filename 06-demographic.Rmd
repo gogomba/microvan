@@ -80,3 +80,171 @@ ggsave(
 ```{r echo=FALSE, fig.cap="", out.width = '100%'}
 knitr::include_graphics(demo_cluster_ridge_path)
 ```
+
+### Count of Subjects in Clusters
+```{r}
+demo_cluster_count = demo_cluster %>%
+  dplyr::select(cluster)%>%
+  dplyr::group_by(cluster)%>%
+  dplyr::mutate(n_subjects =n()) %>%
+  distinct() %>%
+  dplyr::arrange(cluster)
+
+
+# DT table 
+DT::datatable(demo_cluster_count,rownames = F) 
+```
+
+
+### Stat 
+#### female
+```{r}
+library(ggstatsplot)
+DF = demo_cluster
+DF$cluster <- factor(DF$cluster, levels = c(1,2,3))
+DF$female <- factor(DF$female, levels = c(0,1))
+custom_colors = c("#B2182B", "white", "#4D4D4D")
+
+png_name = "female" 
+female_path= file.path(plotDir,paste0(png_name,".png"))
+png(
+  filename = female_path,
+  width = 400,
+  height = 600
+)
+
+# female
+ggbarstats(
+  data         = DF,
+  #type = "nonparametric",
+  x            = cluster,
+  y            = female,
+  title = png_name
+
+  # ggtheme      = ggthemes::theme_tufte(base_size = 12)
+) +
+  scale_color_manual(values = c(custom_colors))
+
+dev.off()
+```
+```{r echo=FALSE, fig.cap="", out.width = '100%'}
+knitr::include_graphics(female_path)
+```
+
+#### Education
+```{r}
+
+# educ
+ggbarstats(
+  data         = DF,
+  #type = "nonparametric",
+  x            = educ,
+  y            = cluster,title = "educ"
+
+  # ggtheme      = ggthemes::theme_tufte(base_size = 12)
+) +
+  scale_color_manual(values = c(custom_colors))
+
+```
+#### Recycle
+```{r}
+
+png_name = "female" 
+recycle_path= file.path(plotDir,paste0(png_name,".png"))
+
+png(
+  filename = recycle_path,
+  width = 400,
+  height = 600
+)
+
+#
+ggbarstats(
+  data         = DF,
+  #type = "nonparametric",
+  y            = cluster,
+  x            = recycle,
+  title = png_name,
+
+  # ggtheme      = ggthemes::theme_tufte(base_size = 12)
+) 
+dev.off()
+
+#ggbarstats(
+ # data         = DF,
+  #type = "nonparametric",
+  #y            = recycle,
+  #x            = cluster,
+  #title = png_name,
+
+  # ggtheme      = ggthemes::theme_tufte(base_size = 12)
+#)
+
+
+```
+
+```{r echo=FALSE, fig.cap="", out.width = '100%'}
+knitr::include_graphics(recycle_path)
+```
+
+### Kruskal–Wallis H test
+```{r include=FALSE}
+kwh_test_recycle <- DF %>%
+      rstatix::kruskal_test(recycle ~ cluster) %>%
+      as.data.frame()
+
+
+```
+```{r}
+kwh_test_educ <- DF %>%
+      rstatix::kruskal_test(educ ~ cluster) %>%
+      as.data.frame()
+
+kwh_test_numkids <- DF %>%
+      rstatix::kruskal_test(numkids~ cluster) %>%
+      as.data.frame()
+
+kwh_test_mvliking <- DF %>%
+      rstatix::kruskal_test(mvliking~ cluster) %>%
+      as.data.frame()
+
+kwh_test_age<- DF %>%
+      rstatix::kruskal_test(age~ cluster) %>%
+      as.data.frame()
+
+
+kwh_test_income <- DF %>%
+      rstatix::kruskal_test(income~ cluster) %>%
+      as.data.frame()
+
+kwh_test_miles <- DF %>%
+      rstatix::kruskal_test(miles~ cluster) %>%
+      as.data.frame()
+
+kwh_test_female <- DF %>%
+      rstatix::kruskal_test(female~ cluster) %>%
+      as.data.frame()
+
+kwh_test_recycle <- DF %>%
+      rstatix::kruskal_test(recycle~ cluster) %>%
+      as.data.frame()
+
+kwh_test = dplyr::bind_rows(
+  kwh_test_educ,
+  kwh_test_mvliking,
+  kwh_test_age,
+  kwh_test_income,
+  kwh_test_miles,
+  kwh_test_female,
+  kwh_test_recycle )
+
+DT::datatable(kwh_test)
+```
+
+
+### Factor vs Cluster
+
+```{r}
+
+```
+

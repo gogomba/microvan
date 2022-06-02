@@ -3,7 +3,7 @@
 ## Dendrogram
 ```{r}
 EFA_feature = EFA_with_score %>%
-  dplyr::select(PA1, PA2,PA4)
+  dplyr::select(PA1, PA3,PA5)
 
 # Run a cluster analysis on a distance matrix and using the Ward method
 c<- hclust(dist(EFA_feature), method="ward.D2") 
@@ -157,3 +157,5 @@ ggsave(
 ```{r echo=FALSE, fig.cap="", out.width = '100%'}
 knitr::include_graphics(vars_cluster_hist_path)
 ```
+
+
